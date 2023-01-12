@@ -2,8 +2,8 @@
 #1
 #TETRIS 2
 """
-Код писал Мартин Вернер с ~9.12.2020
-Спасибо всем, кто внёс хоть и малый, но вклад в создание этой игры <3
+РљРѕРґ РїРёСЃР°Р» РњР°СЂС‚РёРЅ Р’РµСЂРЅРµСЂ СЃ ~9.12.2020
+РЎРїР°СЃРёР±Рѕ РІСЃРµРј, РєС‚Рѕ РІРЅС‘СЃ С…РѕС‚СЊ Рё РјР°Р»С‹Р№, РЅРѕ РІРєР»Р°Рґ РІ СЃРѕР·РґР°РЅРёРµ СЌС‚РѕР№ РёРіСЂС‹ <3
 """
 python2=False
 import pygame
@@ -31,7 +31,7 @@ pygame.font.init()
 def exit(in_game_call=False):
     global running
     if (in_game_call):
-        dr=tf_dialog("Выйти из игры", "Сохранить игру перед выходом?", byellow, bpyellow, "Да", bgreen, bpgreen, "Нет", baqua, bpaqua, "Назад", 2)
+        dr=tf_dialog("Р’С‹Р№С‚Рё РёР· РёРіСЂС‹", "РЎРѕС…СЂР°РЅРёС‚СЊ РёРіСЂСѓ РїРµСЂРµРґ РІС‹С…РѕРґРѕРј?", byellow, bpyellow, "Р”Р°", bgreen, bpgreen, "РќРµС‚", baqua, bpaqua, "РќР°Р·Р°Рґ", 2)
         if (dr==1):
             save_game()
         elif (dr==2):
@@ -138,9 +138,9 @@ screen_size=440*resize
 
 fps=pygame.time.Clock()
 
-#кнопки
-#сюда писать значения при разрешении 440х440п
-#0 - размер; 1 - координаты
+#РєРЅРѕРїРєРё
+#СЃСЋРґР° РїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ РїСЂРё СЂР°Р·СЂРµС€РµРЅРёРё 440С…440Рї
+#0 - СЂР°Р·РјРµСЂ; 1 - РєРѕРѕСЂРґРёРЅР°С‚С‹
 marathon_button=((360,60), (40,360))
 settings_button=((40,40), (0,0))
 scores_button=((40,40), (120,0))
@@ -149,7 +149,7 @@ music_button=((40,40),(40,0))
 mat_button=((40,40), (0,400))
 info_button=((40,40), (400,0))
 back_button=((40,40), (0,0))
-select_mat_button=((400,40), (20,40)) #Кнопка больше не используется!
+select_mat_button=((400,40), (20,40)) #РљРЅРѕРїРєР° Р±РѕР»СЊС€Рµ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ!
 
 resume_button=((400,40), (20,20))
 restart_button=((400,40), (20,80))
@@ -229,7 +229,7 @@ def colorize(image, newColor):
     return image
 
 def s_text(text, ttx, place, color, mode, font, alpha=0):
-    #1 - нормальный режим; 2 - режим с отстопом от правого края; 3 - режим с отступом от левого края; 4 - по центру (y); 5 - по центру (х, у)
+    #1 - РЅРѕСЂРјР°Р»СЊРЅС‹Р№ СЂРµР¶РёРј; 2 - СЂРµР¶РёРј СЃ РѕС‚СЃС‚РѕРїРѕРј РѕС‚ РїСЂР°РІРѕРіРѕ РєСЂР°СЏ; 3 - СЂРµР¶РёРј СЃ РѕС‚СЃС‚СѓРїРѕРј РѕС‚ Р»РµРІРѕРіРѕ РєСЂР°СЏ; 4 - РїРѕ С†РµРЅС‚СЂСѓ (y); 5 - РїРѕ С†РµРЅС‚СЂСѓ (С…, Сѓ)
     if (mode==1):
         screen.blit(font.render(text, ttx, color),(place[0]*resize,place[1]*resize))
     elif (mode==2):
@@ -286,7 +286,7 @@ pygame.display.set_caption('Tetris')
 #
 #cbg, marathon_button10im, matarhon_button11im, settings_button10im, settings_button11im, scores_button10im, scores_button11im, logo, icon, back_button10im, back_button11im, font=0,0,0,0,0,0,0,0,0,0,0,0
 if (os.path.isdir('tuol')):
-    loading_screen_to_show="Обновление тем при запуске..."
+    loading_screen_to_show="РћР±РЅРѕРІР»РµРЅРёРµ С‚РµРј РїСЂРё Р·Р°РїСѓСЃРєРµ..."
     for i in os.listdir("tuol"):
         try:
             shutil.rmtree("resources/Themes/"+i)
@@ -295,7 +295,7 @@ if (os.path.isdir('tuol')):
         shutil.move("tuol/"+i, "resources/Themes/")
     shutil.rmtree("tuol")
 if (len(settings["rtol"])>0):
-    loading_screen_to_show="Запланированное удаление тем при запуске..."
+    loading_screen_to_show="Р—Р°РїР»Р°РЅРёСЂРѕРІР°РЅРЅРѕРµ СѓРґР°Р»РµРЅРёРµ С‚РµРј РїСЂРё Р·Р°РїСѓСЃРєРµ..."
     for i in settings["rtol"]:
         try:
             shutil.rmtree("resources/Themes/"+i)
@@ -309,119 +309,119 @@ def reload_resources(directory):
     global bg, cbg, marathon_button10im, marathon_button11im, settings_button10im, settings_button11im, scores_button10im, scores_button11im, back_button10im, back_button11im, up_button10im, up_button11im, down_button10im, down_button11im, mat_button10im, mat_button11im, info_button10im, info_button11im, themes_button10im, themes_button11im, music_button10im, music_button11im, screen
     global logo, icon, font, bigfont, font18, font12, font20, font22, hugefont, aqua, blue, green, orange, purple, yellow, red, grey, projection, clear_animation_0, clear_animation_1, clear_animation_2, clear_animation_3, clear_animation_4, clear_animation_5, clear_animation_6, clear_animation_7, clear_animation_8, clear_animation_9, fall_effect, pause_bg, selection, loading_circle, noprev, tbg, ibtu, disc
     global red_disc, orange_disc, yellow_disc, green_disc, aqua_disc, blue_disc, purple_disc
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/bg.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/bg.png"
     try:bg=pygame.image.load("resources/Themes/"+directory+"/resources/bg.png").convert_alpha()
     except:bg=pygame.image.load("resources/Themes/Default/resources/bg.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/pause_bg.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/pause_bg.png"
     try:pause_bg=pygame.image.load("resources/Themes/"+directory+"/resources/pause_bg.png").convert_alpha()
     except:pause_bg=pygame.image.load("resources/Themes/Default/resources/pause_bg.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/cbg.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/cbg.png"
     try:cbg=pygame.image.load("resources/Themes/"+directory+"/resources/cbg.png").convert_alpha()
     except:cbg=pygame.image.load("resources/Themes/Default/resources/cbg.png").convert_alpha()
     
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/marathon_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/marathon_button10im.png"
     try:marathon_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/marathon_button10im.png").convert_alpha()
     except:marathon_button10im=pygame.image.load("resources/Themes/Default/resources/marathon_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/marathon_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/marathon_button11im.png"
     try:marathon_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/marathon_button11im.png").convert_alpha()
     except:marathon_button11im=pygame.image.load("resources/Themes/Default/resources/marathon_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/settings_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/settings_button10im.png"
     try:settings_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/settings_button10im.png").convert_alpha()
     except:settings_button10im=pygame.image.load("resources/Themes/Default/resources/settings_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/settings_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/settings_button11im.png"
     try:settings_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/settings_button11im.png").convert_alpha()
     except:settings_button11im=pygame.image.load("resources/Themes/Default/resources/settings_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/scores_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/scores_button10im.png"
     try:scores_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/scores_button10im.png").convert_alpha()
     except:scores_button10im=pygame.image.load("resources/Themes/Default/resources/scores_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/scores_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/scores_button11im.png"
     try:scores_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/scores_button11im.png").convert_alpha()
     except:scores_button11im=pygame.image.load("resources/Themes/Default/resources/scores_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/back_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/back_button10im.png"
     try:back_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/back_button10im.png").convert_alpha()
     except:back_button10im=pygame.image.load("resources/Themes/Default/resources/back_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/back_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/back_button11im.png"
     try:back_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/back_button11im.png").convert_alpha()
     except:back_button11im=pygame.image.load("resources/Themes/Default/resources/back_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/up_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/up_button10im.png"
     try:up_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/up_button10im.png").convert_alpha()
     except:up_button10im=pygame.image.load("resources/Themes/Default/resources/up_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/up_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/up_button11im.png"
     try:up_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/up_button11im.png").convert_alpha()
     except:up_button11im=pygame.image.load("resources/Themes/Default/resources/up_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/down_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/down_button10im.png"
     try:down_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/down_button10im.png").convert_alpha()
     except:down_button10im=pygame.image.load("resources/Themes/Default/resources/down_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/down_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/down_button11im.png"
     try:down_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/down_button11im.png").convert_alpha()
     except:down_button11im=pygame.image.load("resources/Themes/Default/resources/down_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/mat_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/mat_button10im.png"
     try:mat_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/mat_button10im.png").convert_alpha()
     except:mat_button10im=pygame.image.load("resources/Themes/Default/resources/mat_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/mat_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/mat_button11im.png"
     try:mat_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/mat_button11im.png").convert_alpha()
     except:mat_button11im=pygame.image.load("resources/Themes/Default/resources/mat_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/info_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/info_button10im.png"
     try:info_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/info_button10im.png").convert_alpha()
     except:info_button10im=pygame.image.load("resources/Themes/Default/resources/info_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/info_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/info_button11im.png"
     try:info_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/info_button11im.png").convert_alpha()
     except:info_button11im=pygame.image.load("resources/Themes/Default/resources/info_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/themes_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/themes_button10im.png"
     try:themes_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/themes_button10im.png").convert_alpha()
     except:themes_button10im=pygame.image.load("resources/Themes/Default/resources/themes_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/themes_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/themes_button11im.png"
     try:themes_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/themes_button11im.png").convert_alpha()
     except:themes_button11im=pygame.image.load("resources/Themes/Default/resources/themes_button11im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/music_button10im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/music_button10im.png"
     try:music_button10im=pygame.image.load("resources/Themes/"+directory+"/resources/music_button10im.png").convert_alpha()
     except:music_button10im=pygame.image.load("resources/Themes/Default/resources/music_button10im.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/music_button11im.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/music_button11im.png"
     try:music_button11im=pygame.image.load("resources/Themes/"+directory+"/resources/music_button11im.png").convert_alpha()
     except:music_button11im=pygame.image.load("resources/Themes/Default/resources/music_button11im.png").convert_alpha()
     
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/logo.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/logo.png"
     try:logo=pygame.image.load("resources/Themes/"+directory+"/resources/logo.png").convert_alpha()
     except:logo=pygame.image.load("resources/Themes/Default/resources/logo.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/logo.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/logo.png"
     try:icon=pygame.image.load("resources/Themes/"+directory+"/resources/logo.png").convert_alpha()
     except:icon=pygame.image.load("resources/Themes/Default/resources/logo.png").convert_alpha()
     pygame.display.set_icon(icon)
     pygame.display.set_caption('Tetris')
     
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/selection.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/selection.png"
     try:selection=pygame.image.load("resources/Themes/"+directory+"/resources/selection.png").convert_alpha()
     except:selection=pygame.image.load("resources/Themes/Default/resources/selection.png").convert_alpha()
 
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/aqua.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/aqua.png"
     try:aqua=pygame.image.load("resources/Themes/"+directory+"/resources/aqua.png").convert_alpha()
     except:aqua=pygame.image.load("resources/Themes/Default/resources/aqua.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/blue.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/blue.png"
     try:blue=pygame.image.load("resources/Themes/"+directory+"/resources/blue.png").convert_alpha()
     except:blue=pygame.image.load("resources/Themes/Default/resources/blue.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/green.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/green.png"
     try:green=pygame.image.load("resources/Themes/"+directory+"/resources/green.png").convert_alpha()
     except:green=pygame.image.load("resources/Themes/Default/resources/green.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/orange.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/orange.png"
     try:orange=pygame.image.load("resources/Themes/"+directory+"/resources/orange.png").convert_alpha()
     except:orange=pygame.image.load("resources/Themes/Default/resources/orange.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/purple.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/purple.png"
     try:purple=pygame.image.load("resources/Themes/"+directory+"/resources/purple.png").convert_alpha()
     except:purple=pygame.image.load("resources/Themes/Default/resources/purple.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/yellow.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/yellow.png"
     try:yellow=pygame.image.load("resources/Themes/"+directory+"/resources/yellow.png").convert_alpha()
     except:yellow=pygame.image.load("resources/Themes/Default/resources/yellow.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/red.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/red.png"
     try:red=pygame.image.load("resources/Themes/"+directory+"/resources/red.png").convert_alpha()
     except:red=pygame.image.load("resources/Themes/Default/resources/red.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/grey.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/grey.png"
     try:grey=pygame.image.load("resources/Themes/"+directory+"/resources/grey.png").convert_alpha()
     except:grey=pygame.image.load("resources/Themes/Default/resources/grey.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/projection.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/projection.png"
     try:projection=pygame.image.load("resources/Themes/"+directory+"/resources/projection.png").convert_alpha()
     except:projection=pygame.image.load("resources/Themes/Default/resources/projection.png").convert_alpha()
     
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/font.ttf"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/font.ttf"
     try:font=pygame.font.Font('resources/Themes/'+directory+'/resources/font.ttf', 24*resize)
     except:font=pygame.font.Font('resources/Themes/Default/resources/font.ttf', 24*resize)
     try:bigfont=pygame.font.Font('resources/Themes/'+directory+'/resources/font.ttf', 30*resize)
@@ -437,58 +437,58 @@ def reload_resources(directory):
     try:hugefont=pygame.font.Font('resources/Themes/'+directory+'/resources/font.ttf', 144*resize)
     except:hugefont=pygame.font.Font('resources/Themes/Default/resources/font.ttf', 144*resize)
     
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/0.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/0.png"
     try:clear_animation_0=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/0.png").convert_alpha()
     except:clear_animation_0=pygame.image.load("resources/Themes/Default/resources/clear_animation/0.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/1.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/1.png"
     try:clear_animation_1=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/1.png").convert_alpha()
     except:clear_animation_1=pygame.image.load("resources/Themes/Default/resources/clear_animation/1.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/2.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/2.png"
     try:clear_animation_2=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/2.png").convert_alpha()
     except:clear_animation_2=pygame.image.load("resources/Themes/Default/resources/clear_animation/2.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/3.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/3.png"
     try:clear_animation_3=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/3.png").convert_alpha()
     except:clear_animation_3=pygame.image.load("resources/Themes/Default/resources/clear_animation/3.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/4.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/4.png"
     try:clear_animation_4=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/4.png").convert_alpha()
     except:clear_animation_4=pygame.image.load("resources/Themes/Default/resources/clear_animation/4.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/5.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/5.png"
     try:clear_animation_5=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/5.png").convert_alpha()
     except:clear_animation_5=pygame.image.load("resources/Themes/Default/resources/clear_animation/5.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/6.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/6.png"
     try:clear_animation_6=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/6.png").convert_alpha()
     except:clear_animation_6=pygame.image.load("resources/Themes/Default/resources/clear_animation/6.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/7.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/7.png"
     try:clear_animation_7=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/7.png").convert_alpha()
     except:clear_animation_7=pygame.image.load("resources/Themes/Default/resources/clear_animation/7.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/8.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/8.png"
     try:clear_animation_8=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/8.png").convert_alpha()
     except:clear_animation_8=pygame.image.load("resources/Themes/Default/resources/clear_animation/8.png").convert_alpha()
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/clear_animation/9.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/clear_animation/9.png"
     try:clear_animation_9=pygame.image.load("resources/Themes/"+directory+"/resources/clear_animation/9.png").convert_alpha()
     except:clear_animation_9=pygame.image.load("resources/Themes/Default/resources/clear_animation/9.png").convert_alpha()
     
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/fall_effect.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/fall_effect.png"
     try:fall_effect=pygame.image.load("resources/Themes/"+directory+"/resources/fall_effect.png").convert_alpha()
     except:fall_effect=pygame.image.load("resources/Themes/Default/resources/fall_effect.png").convert_alpha()
 
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/noprev.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/noprev.png"
     try:noprev=pygame.image.load("resources/Themes/"+directory+"/resources/noprev.png").convert_alpha()
     except:noprev=pygame.image.load("resources/Themes/Default/resources/noprev.png").convert_alpha()
 
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/tbg.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/tbg.png"
     try:tbg=pygame.image.load("resources/Themes/"+directory+"/resources/tbg.png").convert_alpha()
     except:tbg=pygame.image.load("resources/Themes/Default/resources/tbg.png").convert_alpha()
 
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/ibtu.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/ibtu.png"
     try:ibtu=pygame.image.load("resources/Themes/"+directory+"/resources/ibtu.png").convert_alpha()
     except:ibtu=pygame.image.load("resources/Themes/Default/resources/ibtu.png").convert_alpha()
 
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/resources/disc.png"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/resources/disc.png"
     try:disc=pygame.image.load("resources/Themes/"+directory+"/resources/disc.png").convert_alpha()
     except:disc=pygame.image.load("resources/Themes/Default/resources/disc.png").convert_alpha()
 
-    loading_screen_to_show="Изменение размеров ресурсов..."
+    loading_screen_to_show="РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂРѕРІ СЂРµСЃСѓСЂСЃРѕРІ..."
     bg=pygame.transform.scale(bg, (screen_size, screen_size))
     pause_bg=pygame.transform.scale(pause_bg, (screen_size, screen_size))
     cbg=pygame.transform.scale(cbg, (screen_size, screen_size))
@@ -543,70 +543,70 @@ def reload_resources(directory):
     disc=pygame.transform.scale(disc, (150*resize, 150*resize))
 
     global row_1, row_2, row_3, row_4, e_move_right, e_move_left, e_move_error, pause_music, menu_music, nav, nav_back, e_drop, e_hard_drop, e_rotation_right, e_rotation_left, e_tm_p, e_tm_p_error, start_sound, game_over_sound, e_perfect_clear
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/pause_music.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/pause_music.ogg"
     try:pause_music=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/pause_music.ogg")
     except:pause_music=pygame.mixer.Sound("resources/Themes/Default/mf/pause_music.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/perfect_clear.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/perfect_clear.ogg"
     try:e_perfect_clear=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/perfect_clear.ogg")
     except:e_perfect_clear=pygame.mixer.Sound("resources/Themes/Default/mf/perfect_clear.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/1_row.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/1_row.ogg"
     try:row_1=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/1_row.ogg")
     except:row_1=pygame.mixer.Sound("resources/Themes/Default/mf/1_row.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/2_row.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/2_row.ogg"
     try:row_2=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/2_row.ogg")
     except:row_2=pygame.mixer.Sound("resources/Themes/Default/mf/2_row.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/3_row.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/3_row.ogg"
     try:row_3=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/3_row.ogg")
     except:row_3=pygame.mixer.Sound("resources/Themes/Default/mf/3_row.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/4_row.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/4_row.ogg"
     try:row_4=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/4_row.ogg")
     except:row_4=pygame.mixer.Sound("resources/Themes/Default/mf/4_row.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_move_right.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_move_right.ogg"
     try:e_move_right=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_move_right.ogg")
     except:e_move_right=pygame.mixer.Sound("resources/Themes/Default/mf/e_move_right.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_move_left.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_move_left.ogg"
     try:e_move_left=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_move_left.ogg")
     except:e_move_left=pygame.mixer.Sound("resources/Themes/Default/mf/e_move_left.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_move_error.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_move_error.ogg"
     try:e_move_error=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_move_error.ogg")
     except:e_move_error=pygame.mixer.Sound("resources/Themes/Default/mf/e_move_error.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/menu.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/menu.ogg"
     try:menu_music=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/menu.ogg")
     except:menu_music=pygame.mixer.Sound("resources/Themes/Default/mf/menu.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/nav.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/nav.ogg"
     try:nav=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/nav.ogg")
     except:nav=pygame.mixer.Sound("resources/Themes/Default/mf/nav.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/nav_back.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/nav_back.ogg"
     try:nav_back=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/nav_back.ogg")
     except:nav_back=pygame.mixer.Sound("resources/Themes/Default/mf/nav_back.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_drop.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_drop.ogg"
     try:e_drop=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_drop.ogg")
     except:e_drop=pygame.mixer.Sound("resources/Themes/Default/mf/e_drop.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_hard_drop.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_hard_drop.ogg"
     try:e_hard_drop=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_hard_drop.ogg")
     except:e_hard_drop=pygame.mixer.Sound("resources/Themes/Default/mf/e_hard_drop.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_rotation_right.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_rotation_right.ogg"
     try:e_rotation_right=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_rotation_right.ogg")
     except:e_rotation_right=pygame.mixer.Sound("resources/Themes/Default/mf/e_rotation_right.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_rotation_left.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_rotation_left.ogg"
     try:e_rotation_left=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_rotation_left.ogg")
     except:e_rotation_left=pygame.mixer.Sound("resources/Themes/Default/mf/e_rotation_left.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_tm_p.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_tm_p.ogg"
     try:e_tm_p=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_tm_p.ogg")
     except:e_tm_p=pygame.mixer.Sound("resources/Themes/Default/mf/e_tm_p.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/e_tm_p_error.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/e_tm_p_error.ogg"
     try:e_tm_p_error=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/e_tm_p_error.ogg")
     except:e_tm_p_error=pygame.mixer.Sound("resources/Themes/Default/mf/e_tm_p_error.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/start.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/start.ogg"
     try:start_sound=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/start.ogg")
     except:start_sound=pygame.mixer.Sound("resources/Themes/Default/mf/start.ogg")
-    loading_screen_to_show="Загрузка ресурса resources/Themes/"+directory+"/mf/game_over.ogg"
+    loading_screen_to_show="Р—Р°РіСЂСѓР·РєР° СЂРµСЃСѓСЂСЃР° resources/Themes/"+directory+"/mf/game_over.ogg"
     try:game_over_sound=pygame.mixer.Sound("resources/Themes/"+directory+"/mf/game_over.ogg")
     except:game_over_sound=pygame.mixer.Sound("resources/Themes/Default/mf/game_over.ogg")
 
     global bred, bpred, borange, bporange, byellow, bpyellow, bgreen, bpgreen, baqua, bpaqua, bblue, bpblue, bpurple, bppurple, bblack, bpblack, bdred, bdgreen
     
-    loading_screen_to_show="Получение информации из resources/Themes/"+directory+"/theme.json"
+    loading_screen_to_show="РџРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РёР· resources/Themes/"+directory+"/theme.json"
     bred=(222, 37, 37)
     bpred=(255, 74, 74)
     borange=(238, 89, 7)
@@ -655,7 +655,7 @@ def reload_resources(directory):
             pass
     except:
         pass
-    loading_screen_to_show="Крашу диски..."
+    loading_screen_to_show="РљСЂР°С€Сѓ РґРёСЃРєРё..."
     
     red_disc=colorize(disc, bred)
     orange_disc=colorize(disc, borange)
@@ -706,7 +706,7 @@ def change_volume(new=True):
         music_channel.set_volume(polzunok_music[1]/100)
         effect_channel.set_volume(polzunok_sound[1]/100)
     
-#значения
+#Р·РЅР°С‡РµРЅРёСЏ
 piece_cd_move_time=settings["piece_cd_move_time"]
 piece_cd_moveD_time=0.5
 piece_part_size=20*resize
@@ -741,7 +741,7 @@ for i in speed_levels_frames:
     #speed_levels.append(round(1*i/60,1))
 #print(speed_levels)
 
-#button data     size (x,y), position (x,y), color (r,g,b) или переменная с картинкой, color_preshed(r,g,b) или переменная с картинкой
+#button data     size (x,y), position (x,y), color (r,g,b) РёР»Рё РїРµСЂРµРјРµРЅРЅР°СЏ СЃ РєР°СЂС‚РёРЅРєРѕР№, color_preshed(r,g,b) РёР»Рё РїРµСЂРµРјРµРЅРЅР°СЏ СЃ РєР°СЂС‚РёРЅРєРѕР№
 #
 #
 #
@@ -1070,7 +1070,7 @@ def npsllris():
         screen.blit(purple, (50*resize, 20*resize))
 
 def menu_ris(menu_type):
-    #а теперь эту функцию можно слить с menu()
+    #Р° С‚РµРїРµСЂСЊ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ РјРѕР¶РЅРѕ СЃР»РёС‚СЊ СЃ menu()
     screen.blit(cbg,(0,0))
     if (menu_type==1):
         screen.blit(logo, (40*resize, 40*resize))
@@ -1083,9 +1083,9 @@ def menu_ris(menu_type):
         screen.blit(music_button10im, (music_button[1][0]*resize,music_button[1][1]*resize))
     elif (menu_type==2):
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
-        draw_button(select_mat_button, bgreen, "Выбор темы")
+        draw_button(select_mat_button, bgreen, "Р’С‹Р±РѕСЂ С‚РµРјС‹")
     elif (menu_type==3):
-        s_text("Статистика", True, (0,20), (255,255,255), 4, bigfont)
+        s_text("РЎС‚Р°С‚РёСЃС‚РёРєР°", True, (0,20), (255,255,255), 4, bigfont)
         
         stats=get_statistic()
         
@@ -1100,16 +1100,16 @@ def menu_ris(menu_type):
         s_text(str(stats[8]), True, (0,300), (255,255,255), 2, font)
         s_text(str(stats[9]), True, (0,330), (255,255,255), 2, font)
 
-        s_text("Рекорд Marathon:", True, (0,60), (255,255,255), 3, font)
-        s_text("Рекорд Endless:", True, (0,90), (255,255,255), 3, font)
-        s_text("Рекордный уровень:", True, (0,120), (255,255,255), 3, font)
-        s_text("Рекорд по убранным линиям:", True, (0,150), (255,255,255), 3, font)
-        s_text("Кол-во убранных линий:", True, (0,180), (255,255,255), 3, font)
-        s_text("Одинарная расчистка линий:", True, (0,210), (255, 255, 255), 3, font)
-        s_text("Двойная расчистка линий:", True, (0,240), (255, 255, 255), 3, font)
-        s_text("Тройная расчистка линий:", True, (0,270), (255, 255, 255), 3, font)
-        s_text("Расчистка линий \"TETRIS\":", True, (0,300), (255, 255, 255), 3, font)
-        s_text("Кол-во комбо:", True, (0,330), (255, 255, 255), 3, font)
+        s_text("Р РµРєРѕСЂРґ Marathon:", True, (0,60), (255,255,255), 3, font)
+        s_text("Р РµРєРѕСЂРґ Endless:", True, (0,90), (255,255,255), 3, font)
+        s_text("Р РµРєРѕСЂРґРЅС‹Р№ СѓСЂРѕРІРµРЅСЊ:", True, (0,120), (255,255,255), 3, font)
+        s_text("Р РµРєРѕСЂРґ РїРѕ СѓР±СЂР°РЅРЅС‹Рј Р»РёРЅРёСЏРј:", True, (0,150), (255,255,255), 3, font)
+        s_text("РљРѕР»-РІРѕ СѓР±СЂР°РЅРЅС‹С… Р»РёРЅРёР№:", True, (0,180), (255,255,255), 3, font)
+        s_text("РћРґРёРЅР°СЂРЅР°СЏ СЂР°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№:", True, (0,210), (255, 255, 255), 3, font)
+        s_text("Р”РІРѕР№РЅР°СЏ СЂР°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№:", True, (0,240), (255, 255, 255), 3, font)
+        s_text("РўСЂРѕР№РЅР°СЏ СЂР°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№:", True, (0,270), (255, 255, 255), 3, font)
+        s_text("Р Р°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№ \"TETRIS\":", True, (0,300), (255, 255, 255), 3, font)
+        s_text("РљРѕР»-РІРѕ РєРѕРјР±Рѕ:", True, (0,330), (255, 255, 255), 3, font)
         
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
     elif (menu_type==4):
@@ -1117,10 +1117,10 @@ def menu_ris(menu_type):
 #
 #
 
-#переменные игры
+#РїРµСЂРµРјРµРЅРЅС‹Рµ РёРіСЂС‹
 bordery=23
 borderx=10
-#создание функций игры
+#СЃРѕР·РґР°РЅРёРµ С„СѓРЅРєС†РёР№ РёРіСЂС‹
 def n_level():
     global level
     level=linii//10+1
@@ -1226,19 +1226,19 @@ def clear():
         linii=linii+1
         count1row+=1
         row_1.play()
-        #stat_tablo_mass.append("1 линия")
+        #stat_tablo_mass.append("1 Р»РёРЅРёСЏ")
     elif (len(cleared)==2):
         score=score+300*level
         linii=linii+2
         count2row+=1
         row_2.play()
-        #stat_tablo_mass.append("2 линии")
+        #stat_tablo_mass.append("2 Р»РёРЅРёРё")
     elif (len(cleared)==3):
         score=score+500*level
         linii=linii+3
         count3row+=1
         row_3.play()
-        #stat_tablo_mass.append("3 линии")
+        #stat_tablo_mass.append("3 Р»РёРЅРёРё")
     elif (len(cleared)==4):
         linii=linii+4
         count4row+=1
@@ -1266,7 +1266,7 @@ def clear():
                 break
         if (perfect):
             e_perfect_clear.play()
-            stat_tablo_mass.append("Пылесос")
+            stat_tablo_mass.append("РџС‹Р»РµСЃРѕСЃ")
             if (len(cleared)==1):
                 score+=800*level
             elif (len(cleared)==2):
@@ -1278,7 +1278,7 @@ def clear():
             elif (len(cleared)==4):
                 score+=2000*level
         if (combo>1):
-            stat_tablo_mass.append("Комбо +"+str(combo-1))
+            stat_tablo_mass.append("РљРѕРјР±Рѕ +"+str(combo-1))
             score+=50*combo-1*level
             count_combo+=1
     else:
@@ -1389,7 +1389,7 @@ def clear():
                 perfect=False
                 break
         if (perfect):
-            stat_tablo_mass.append("Пылесос")
+            stat_tablo_mass.append("РџС‹Р»РµСЃРѕСЃ")
             if (len(cleared)==1):
                 score+=800*level
             elif (len(cleared)==2):
@@ -1437,9 +1437,9 @@ def restart():
     r_marathon,r_endless=0,0
     stat_tablo_mass=[]
     stat_tablo_to_show=""
-    positions=[[0,0,0,0,0,0,0,0,0,0], #0 линия, которая не отображается в игре, но здесь может находиться фигура
-               [0,0,0,0,0,0,0,0,0,0], #1 линия, которая не отображается в игре, но здесь может находиться фигура
-               [0,0,0,0,0,0,0,0,0,0], #2 линия, которая не отображается в игре, но здесь может находиться фигура
+    positions=[[0,0,0,0,0,0,0,0,0,0], #0 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+               [0,0,0,0,0,0,0,0,0,0], #1 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+               [0,0,0,0,0,0,0,0,0,0], #2 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
                [0,0,0,0,0,0,0,0,0,0], #3
                [0,0,0,0,0,0,0,0,0,0], #4
                [0,0,0,0,0,0,0,0,0,0], #5
@@ -1461,9 +1461,9 @@ def restart():
                [0,0,0,0,0,0,0,0,0,0], #21
                [0,0,0,0,0,0,0,0,0,0]] #22
     #           0 1 2 3 4 5 6 7 8 9
-    padenie=[[0,0,0,0,0,0,0,0,0,0], #0 линия, которая не отображается в игре, но здесь может находиться фигура
-             [0,0,0,0,0,0,0,0,0,0], #1 линия, которая не отображается в игре, но здесь может находиться фигура
-             [0,0,0,0,0,0,0,0,0,0], #2 линия, которая не отображается в игре, но здесь может находиться фигура
+    padenie=[[0,0,0,0,0,0,0,0,0,0], #0 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+             [0,0,0,0,0,0,0,0,0,0], #1 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+             [0,0,0,0,0,0,0,0,0,0], #2 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
              [0,0,0,0,0,0,0,0,0,0], #3
              [0,0,0,0,0,0,0,0,0,0], #4
              [0,0,0,0,0,0,0,0,0,0], #5
@@ -1487,7 +1487,7 @@ def restart():
     try:
         file=open("save.gst","r")
         file.close()
-        dr=tf_dialog("Обнаружено сохранение", "Продолжить ранее начатую игру?", bpurple, bppurple, "Продолжить", baqua, bpaqua, "Начать заново", bblue, bpblue, "Назад", 2)
+        dr=tf_dialog("РћР±РЅР°СЂСѓР¶РµРЅРѕ СЃРѕС…СЂР°РЅРµРЅРёРµ", "РџСЂРѕРґРѕР»Р¶РёС‚СЊ СЂР°РЅРµРµ РЅР°С‡Р°С‚СѓСЋ РёРіСЂСѓ?", bpurple, bppurple, "РџСЂРѕРґРѕР»Р¶РёС‚СЊ", baqua, bpaqua, "РќР°С‡Р°С‚СЊ Р·Р°РЅРѕРІРѕ", bblue, bpblue, "РќР°Р·Р°Рґ", 2)
         if (dr==1):
             g_resume=open("save.gst", "r")
             grs=g_resume.read()
@@ -1533,9 +1533,9 @@ def restart():
         pass#print(error)
     try:os.remove("save.gst")
     except:pass
-    positions=[[0,0,0,0,0,0,0,0,0,0], #0 линия, которая не отображается в игре, но здесь может находиться фигура
-               [0,0,0,0,0,0,0,0,0,0], #1 линия, которая не отображается в игре, но здесь может находиться фигура
-               [0,0,0,0,0,0,0,0,0,0], #2 линия, которая не отображается в игре, но здесь может находиться фигура
+    positions=[[0,0,0,0,0,0,0,0,0,0], #0 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+               [0,0,0,0,0,0,0,0,0,0], #1 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+               [0,0,0,0,0,0,0,0,0,0], #2 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
                [0,0,0,0,0,0,0,0,0,0], #3
                [0,0,0,0,0,0,0,0,0,0], #4
                [0,0,0,0,0,0,0,0,0,0], #5
@@ -1557,9 +1557,9 @@ def restart():
                [0,0,0,0,0,0,0,0,0,0], #21
                [0,0,0,0,0,0,0,0,0,0]] #22
     #           0 1 2 3 4 5 6 7 8 9
-    padenie=[[0,0,0,0,0,0,0,0,0,0], #0 линия, которая не отображается в игре, но здесь может находиться фигура
-             [0,0,0,0,0,0,0,0,0,0], #1 линия, которая не отображается в игре, но здесь может находиться фигура
-             [0,0,0,0,0,0,0,0,0,0], #2 линия, которая не отображается в игре, но здесь может находиться фигура
+    padenie=[[0,0,0,0,0,0,0,0,0,0], #0 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+             [0,0,0,0,0,0,0,0,0,0], #1 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+             [0,0,0,0,0,0,0,0,0,0], #2 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
              [0,0,0,0,0,0,0,0,0,0], #3
              [0,0,0,0,0,0,0,0,0,0], #4
              [0,0,0,0,0,0,0,0,0,0], #5
@@ -1581,9 +1581,9 @@ def restart():
              [0,0,0,0,0,0,0,0,0,0], #21
              [0,0,0,0,0,0,0,0,0,0]] #22
     #        0 1 2 3 4 5 6 7 8 9
-    proekc=[[0,0,0,0,0,0,0,0,0,0], #0 линия, которая не отображается в игре, но здесь может находиться фигура
-            [0,0,0,0,0,0,0,0,0,0], #1 линия, которая не отображается в игре, но здесь может находиться фигура
-            [0,0,0,0,0,0,0,0,0,0], #2 линия, которая не отображается в игре, но здесь может находиться фигура
+    proekc=[[0,0,0,0,0,0,0,0,0,0], #0 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+            [0,0,0,0,0,0,0,0,0,0], #1 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
+            [0,0,0,0,0,0,0,0,0,0], #2 Р»РёРЅРёСЏ, РєРѕС‚РѕСЂР°СЏ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РёРіСЂРµ, РЅРѕ Р·РґРµСЃСЊ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ С„РёРіСѓСЂР°
             [0,0,0,0,0,0,0,0,0,0], #3
             [0,0,0,0,0,0,0,0,0,0], #4
             [0,0,0,0,0,0,0,0,0,0], #5
@@ -1724,7 +1724,7 @@ def figura():
     p_clear()
     spawn_new_figure(figure)
     #if (combo>1):
-    #    stat_tablo_mass.append("Комбо +"+str(combo))
+    #    stat_tablo_mass.append("РљРѕРјР±Рѕ +"+str(combo))
     #    score+=50*combo-1*level
     #    count_combo+=1
 
@@ -1794,7 +1794,7 @@ def spawn_new_figure(figure):
             running=False
             #game_overed()
 
-#передвижение фигур
+#РїРµСЂРµРґРІРёР¶РµРЅРёРµ С„РёРіСѓСЂ
 def get_piece_locations(massive):
     result=[]
     for i in range(0,bordery):
@@ -1859,12 +1859,12 @@ def hard_drop():
         moved=True
     return moved
 
-#  1 оранж. 3 красный 5 желтый  7 фиолетовый
+#  1 РѕСЂР°РЅР¶. 3 РєСЂР°СЃРЅС‹Р№ 5 Р¶РµР»С‚С‹Р№  7 С„РёРѕР»РµС‚РѕРІС‹Р№
 #  x    x                x  
 #  x    x  xx    xx  xx  x     xxx
 #  xx  xx   xx  xx   xx  x      x
 #                        x
-#      2 синий  4 зел.   6 голубой
+#      2 СЃРёРЅРёР№  4 Р·РµР».   6 РіРѕР»СѓР±РѕР№
 #figure rotation data
 frdr=[[[[2,0],[-1,1],[0,0],[1,-1]],
       [[1,1],[0,0],[-1,-1],[0,-2]],
@@ -2187,7 +2187,7 @@ def rotate_cw():
         rotation=rotation-1
         return False
     
-    #поворот
+    #РїРѕРІРѕСЂРѕС‚
     p_clear()
     padenie[piece_location[0][0]+test_data[0]+frdr[figure-1][rotation-1][0][0]][piece_location[0][1]+test_data[1]+frdr[figure-1][rotation-1][0][1]]=figure
     padenie[piece_location[1][0]+test_data[0]+frdr[figure-1][rotation-1][1][0]][piece_location[1][1]+test_data[1]+frdr[figure-1][rotation-1][1][1]]=figure
@@ -2218,7 +2218,7 @@ def rotate_ccw():
     if (not test_data):
         return False
     
-    #поворот
+    #РїРѕРІРѕСЂРѕС‚
     p_clear()
     padenie[piece_location[0][0]+test_data[0]+frdl[figure-1][rotation-1][0][0]][piece_location[0][1]+test_data[1]+frdl[figure-1][rotation-1][0][1]]=figure
     padenie[piece_location[1][0]+test_data[0]+frdl[figure-1][rotation-1][1][0]][piece_location[1][1]+test_data[1]+frdl[figure-1][rotation-1][1][1]]=figure
@@ -2230,7 +2230,7 @@ def rotate_ccw():
 #
 #
 #
-#запуск игры
+#Р·Р°РїСѓСЃРє РёРіСЂС‹
 get_statistic()
 #resume_button=((400,40), (20,20))
 #restart_button=((400,40), (20,80))
@@ -2295,8 +2295,8 @@ def new_mat_menu(in_game_call):
         mouse_pos=pygame.mouse.get_pos()
         #print("mat_menu")
         screen.blit(cbg,(0,0))
-        s_text("Выбери музыку", True, (0, 20), (255,255,255), 4, font)
-        s_text("Выбери тему", True, (0, 260), (255,255,255), 4, font)
+        s_text("Р’С‹Р±РµСЂРё РјСѓР·С‹РєСѓ", True, (0, 20), (255,255,255), 4, font)
+        s_text("Р’С‹Р±РµСЂРё С‚РµРјСѓ", True, (0, 260), (255,255,255), 4, font)
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
         screen.blit(up_button10im, (up_button[1][0]*resize,up_button[1][1]*resize))
         screen.blit(down_button10im, (down_button[1][0]*resize,down_button[1][1]*resize))
@@ -2313,8 +2313,8 @@ def new_mat_menu(in_game_call):
         #draw_button(effectpp, bgreen, "++")
         #draw_button(effectm, bred, "-")
         #draw_button(effectmm, bred, "--")
-        s_text("Громкость музыки:", True, (0, 200), (255,255,255), 3, font)
-        s_text("Громкость звуков:", True, (0, 230), (255,255,255), 3, font)
+        s_text("Р“СЂРѕРјРєРѕСЃС‚СЊ РјСѓР·С‹РєРё:", True, (0, 200), (255,255,255), 3, font)
+        s_text("Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєРѕРІ:", True, (0, 230), (255,255,255), 3, font)
         if (selected_music-1>=0):
             s_text(musics[selected_music-1],True,(-25,68),(255,255,255),4,font)#screen.blit(font.render(musics[selected_music-1],True,(255,255,255)),(28*resize,68*resize))
         s_text(musics[selected_music],True,(-25,108),(255,255,255),4,font)#screen.blit(font.render(musics[selected_music],True,(255,255,255)),(28*resize,108*resize))
@@ -2444,8 +2444,8 @@ def mat_menu(in_game_call):
         mouse_pos=pygame.mouse.get_pos()
         #print("mat_menu")
         screen.blit(cbg,(0,0))
-        s_text("Выбери музыку", True, (0, 20), (255,255,255), 4, font)
-        s_text("Выбери тему", True, (0, 260), (255,255,255), 4, font)
+        s_text("Р’С‹Р±РµСЂРё РјСѓР·С‹РєСѓ", True, (0, 20), (255,255,255), 4, font)
+        s_text("Р’С‹Р±РµСЂРё С‚РµРјСѓ", True, (0, 260), (255,255,255), 4, font)
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
         screen.blit(up_button10im, (up_button[1][0]*resize,up_button[1][1]*resize))
         screen.blit(down_button10im, (down_button[1][0]*resize,down_button[1][1]*resize))
@@ -2462,8 +2462,8 @@ def mat_menu(in_game_call):
         #draw_button(effectpp, bgreen, "++")
         #draw_button(effectm, bred, "-")
         #draw_button(effectmm, bred, "--")
-        s_text("Громкость музыки:", True, (0, 200), (255,255,255), 3, font)
-        s_text("Громкость звуков:", True, (0, 230), (255,255,255), 3, font)
+        s_text("Р“СЂРѕРјРєРѕСЃС‚СЊ РјСѓР·С‹РєРё:", True, (0, 200), (255,255,255), 3, font)
+        s_text("Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєРѕРІ:", True, (0, 230), (255,255,255), 3, font)
         if (selected_music-1>=0):
             s_text(musics[selected_music-1],True,(-25,68),(255,255,255),4,font)#screen.blit(font.render(musics[selected_music-1],True,(255,255,255)),(28*resize,68*resize))
         s_text(musics[selected_music],True,(-25,108),(255,255,255),4,font)#screen.blit(font.render(musics[selected_music],True,(255,255,255)),(28*resize,108*resize))
@@ -2579,9 +2579,9 @@ def personalization_menu(in_game_call):
         #print("tf_dialog")
         screen.blit(cbg,(0,0))
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
-        s_text("Персонализация", True, (0,20), (255,255,255), 4, bigfont)
-        draw_button(pers_music_menu_button, bgreen, "Музыка")
-        draw_button(pers_themes_menu_button, baqua, "Темы")
+        s_text("РџРµСЂСЃРѕРЅР°Р»РёР·Р°С†РёСЏ", True, (0,20), (255,255,255), 4, bigfont)
+        draw_button(pers_music_menu_button, bgreen, "РњСѓР·С‹РєР°")
+        draw_button(pers_themes_menu_button, baqua, "РўРµРјС‹")
         for event in pygame.event.get():
             if (event.type==pygame.QUIT):
                 exit(in_game_call)
@@ -2610,9 +2610,9 @@ def personalization_menu(in_game_call):
             if (press_check(back_button, mouse_pos)):
                 screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
             elif (press_check(pers_music_menu_button, mouse_pos)):
-                draw_button(pers_music_menu_button, bpgreen, "Музыка")
+                draw_button(pers_music_menu_button, bpgreen, "РњСѓР·С‹РєР°")
             elif (press_check(pers_themes_menu_button, mouse_pos)):
-                draw_button(pers_themes_menu_button, bpaqua, "Темы")
+                draw_button(pers_themes_menu_button, bpaqua, "РўРµРјС‹")
         pygame.display.flip()
         fps.tick(60)
     
@@ -2624,12 +2624,12 @@ def game_paused():
         mouse_pos=pygame.mouse.get_pos()
         #print("game_paused")
         screen.blit(pause_bg,(0,0))
-        draw_button(resume_button, bgreen, "Возобновить игру")
-        draw_button(restart_button, byellow, "Перезапустить игру")
-        draw_button(select_mat_button, baqua, "Персонализация игры")
-        draw_button(p_settings_button, bred, "Настройки")
-        draw_button(to_menu_button, bpurple, "Сохранить и выйти в меню")
-        draw_button(quit_game_button, borange, "Сохранить и выйти из игры")
+        draw_button(resume_button, bgreen, "Р’РѕР·РѕР±РЅРѕРІРёС‚СЊ РёРіСЂСѓ")
+        draw_button(restart_button, byellow, "РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ РёРіСЂСѓ")
+        draw_button(select_mat_button, baqua, "РџРµСЂСЃРѕРЅР°Р»РёР·Р°С†РёСЏ РёРіСЂС‹")
+        draw_button(p_settings_button, bred, "РќР°СЃС‚СЂРѕР№РєРё")
+        draw_button(to_menu_button, bpurple, "РЎРѕС…СЂР°РЅРёС‚СЊ Рё РІС‹Р№С‚Рё РІ РјРµРЅСЋ")
+        draw_button(quit_game_button, borange, "РЎРѕС…СЂР°РЅРёС‚СЊ Рё РІС‹Р№С‚Рё РёР· РёРіСЂС‹")
         for event in pygame.event.get():
             if (event.type==pygame.QUIT):
                 exit(True)
@@ -2646,7 +2646,7 @@ def game_paused():
                         return True
                     elif (press_check(restart_button,mouse_pos)):
                         nav.play()
-                        if (tf_dialog("Перезапустить игру", "Вы уверены?", bgreen, bpgreen, "Да", bred, bpred, "Нет", None, None, None, 3)==1):
+                        if (tf_dialog("РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ РёРіСЂСѓ", "Р’С‹ СѓРІРµСЂРµРЅС‹?", bgreen, bpgreen, "Р”Р°", bred, bpred, "РќРµС‚", None, None, None, 3)==1):
                             if (restart()):
                                 start_animation()
                                 return True
@@ -2672,17 +2672,17 @@ def game_paused():
                     return True
         if (mbd):
             if (press_check(resume_button,mouse_pos)):
-                draw_button(resume_button, bpgreen, "Возобновить игру")
+                draw_button(resume_button, bpgreen, "Р’РѕР·РѕР±РЅРѕРІРёС‚СЊ РёРіСЂСѓ")
             elif (press_check(restart_button,mouse_pos)):
-                draw_button(restart_button, bpyellow, "Перезапустить игру")
+                draw_button(restart_button, bpyellow, "РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ РёРіСЂСѓ")
             elif (press_check(select_mat_button,mouse_pos)):
-                draw_button(select_mat_button, bpaqua, "Персонализация игры")
+                draw_button(select_mat_button, bpaqua, "РџРµСЂСЃРѕРЅР°Р»РёР·Р°С†РёСЏ РёРіСЂС‹")
             elif (press_check(p_settings_button,mouse_pos)):
-                draw_button(p_settings_button, bpred, "Настройки")
+                draw_button(p_settings_button, bpred, "РќР°СЃС‚СЂРѕР№РєРё")
             elif (press_check(to_menu_button,mouse_pos)):
-                draw_button(to_menu_button, bppurple, "Сохранить и выйти в меню")
+                draw_button(to_menu_button, bppurple, "РЎРѕС…СЂР°РЅРёС‚СЊ Рё РІС‹Р№С‚Рё РІ РјРµРЅСЋ")
             elif (press_check(quit_game_button,mouse_pos)):
-                draw_button(quit_game_button, bporange, "Сохранить и выйти из игры")
+                draw_button(quit_game_button, bporange, "РЎРѕС…СЂР°РЅРёС‚СЊ Рё РІС‹Р№С‚Рё РёР· РёРіСЂС‹")
 
         pygame.display.flip()
         fps.tick(60)
@@ -2967,16 +2967,16 @@ def game():
         #fps.tick(60)
     game_overed()
 def record():
-    #0 - рекорд марафона,
-    #1 - рекорд бесконечного режима,
-    #2 - рекордный уровень,
-    #3 - рекордное кол-во расчищенных линий,
-    #4 - кол-во расчищенных линий (накопительный),
-    #5 - кол-во 1 подряд,
-    #6 - кол-во 2 подряд,
-    #7 - кол-во 3 подряд,
-    #8 - кол-во 4 подряд
-    #9 - кол-во комбо
+    #0 - СЂРµРєРѕСЂРґ РјР°СЂР°С„РѕРЅР°,
+    #1 - СЂРµРєРѕСЂРґ Р±РµСЃРєРѕРЅРµС‡РЅРѕРіРѕ СЂРµР¶РёРјР°,
+    #2 - СЂРµРєРѕСЂРґРЅС‹Р№ СѓСЂРѕРІРµРЅСЊ,
+    #3 - СЂРµРєРѕСЂРґРЅРѕРµ РєРѕР»-РІРѕ СЂР°СЃС‡РёС‰РµРЅРЅС‹С… Р»РёРЅРёР№,
+    #4 - РєРѕР»-РІРѕ СЂР°СЃС‡РёС‰РµРЅРЅС‹С… Р»РёРЅРёР№ (РЅР°РєРѕРїРёС‚РµР»СЊРЅС‹Р№),
+    #5 - РєРѕР»-РІРѕ 1 РїРѕРґСЂСЏРґ,
+    #6 - РєРѕР»-РІРѕ 2 РїРѕРґСЂСЏРґ,
+    #7 - РєРѕР»-РІРѕ 3 РїРѕРґСЂСЏРґ,
+    #8 - РєРѕР»-РІРѕ 4 РїРѕРґСЂСЏРґ
+    #9 - РєРѕР»-РІРѕ РєРѕРјР±Рѕ
     file=open("stats.dat","r")
     file_read=file.read()
     file.close()
@@ -2995,7 +2995,7 @@ def record():
     file_read[7]=int(file_read[7])+count3row
     file_read[8]=int(file_read[8])+count4row
     file_read[9]=int(file_read[9])+count_combo
-    #запись обратно
+    #Р·Р°РїРёСЃСЊ РѕР±СЂР°С‚РЅРѕ
     file=open("stats.dat","w")
     for i in range(0,len(file_read)-1):
         file.write(str(file_read[i])+"\n")
@@ -3061,16 +3061,16 @@ def game_overed():
             pygame.display.flip()
         fps.tick(60)
     screen.blit(cbg,(0,0))
-    s_text("Игра окончена", True, (0,20), (255,255,255), 4, bigfont)
-    s_text("Счёт Marathon:", True, (0, 60), (255, 255, 255), 3, font)
-    s_text("Счёт Endless:", True, (0, 100), (255, 255, 255), 3, font)
-    s_text("Кол-во расчищенных линий:", True, (0, 140), (255, 255, 255), 3, font)
-    s_text("Финальный уровень:", True, (0, 180), (255, 255, 255), 3, font)
-    s_text("Одинарная расчистка линий:", True, (0, 220), (255, 255, 255), 3, font)
-    s_text("Двойная расчистка линий:", True, (0, 260), (255, 255, 255), 3, font)
-    s_text("Тройная расчистка линий:", True, (0, 300), (255, 255, 255), 3, font)
-    s_text("Расчистка линий \"TETRIS\":", True, (0, 340), (255, 255, 255), 3, font)
-    s_text("Кол-во комбо:", True, (0, 380), (255, 255, 255), 3, font)
+    s_text("РРіСЂР° РѕРєРѕРЅС‡РµРЅР°", True, (0,20), (255,255,255), 4, bigfont)
+    s_text("РЎС‡С‘С‚ Marathon:", True, (0, 60), (255, 255, 255), 3, font)
+    s_text("РЎС‡С‘С‚ Endless:", True, (0, 100), (255, 255, 255), 3, font)
+    s_text("РљРѕР»-РІРѕ СЂР°СЃС‡РёС‰РµРЅРЅС‹С… Р»РёРЅРёР№:", True, (0, 140), (255, 255, 255), 3, font)
+    s_text("Р¤РёРЅР°Р»СЊРЅС‹Р№ СѓСЂРѕРІРµРЅСЊ:", True, (0, 180), (255, 255, 255), 3, font)
+    s_text("РћРґРёРЅР°СЂРЅР°СЏ СЂР°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№:", True, (0, 220), (255, 255, 255), 3, font)
+    s_text("Р”РІРѕР№РЅР°СЏ СЂР°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№:", True, (0, 260), (255, 255, 255), 3, font)
+    s_text("РўСЂРѕР№РЅР°СЏ СЂР°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№:", True, (0, 300), (255, 255, 255), 3, font)
+    s_text("Р Р°СЃС‡РёСЃС‚РєР° Р»РёРЅРёР№ \"TETRIS\":", True, (0, 340), (255, 255, 255), 3, font)
+    s_text("РљРѕР»-РІРѕ РєРѕРјР±Рѕ:", True, (0, 380), (255, 255, 255), 3, font)
 
     s_text(str(r_marathon), True, (0, 60), (255, 255, 255), 2, font)
     s_text(str(r_endless), True, (0, 100), (255, 255, 255), 2, font)
@@ -3108,21 +3108,21 @@ def info(in_game_call=False):
         #print("tf_dialog")
         screen.blit(cbg,(0,0))
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
-        s_text("Об игре", True, (0,20), (255,255,255), 4, bigfont)
-        s_text("Это фанатская игра", True, (0,60), (255,255,255), 4, font)
-        s_text("Если вы хотите поддержать Tetris,", True, (0,85), (255,255,255), 4, font)
-        s_text("то приобретите официальные игры", True, (0,110), (255,255,255), 4, font)
-        s_text("на сайте Tetris.com", True, (0,135), (255,255,255), 4, font)
+        s_text("РћР± РёРіСЂРµ", True, (0,20), (255,255,255), 4, bigfont)
+        s_text("Р­С‚Рѕ С„Р°РЅР°С‚СЃРєР°СЏ РёРіСЂР°", True, (0,60), (255,255,255), 4, font)
+        s_text("Р•СЃР»Рё РІС‹ С…РѕС‚РёС‚Рµ РїРѕРґРґРµСЂР¶Р°С‚СЊ Tetris,", True, (0,85), (255,255,255), 4, font)
+        s_text("С‚Рѕ РїСЂРёРѕР±СЂРµС‚РёС‚Рµ РѕС„РёС†РёР°Р»СЊРЅС‹Рµ РёРіСЂС‹", True, (0,110), (255,255,255), 4, font)
+        s_text("РЅР° СЃР°Р№С‚Рµ Tetris.com", True, (0,135), (255,255,255), 4, font)
         
-        s_text("Исходный код игры пишет Мартин Вернер с 9.12.2020.", True, (0,170), (255,255,255), 4, font18)
-        s_text("Движок игры \"pygame\" (https://www.pygame.org/)", True, (0,190), (255,255,255), 4, font18)
-        s_text("Звуви вежливо позаимствованы из Tetris 2011 от EA", True, (0,210), (255,255,255), 4, font18)
-        s_text("Все торговые марки принадлежат", True, (0,230), (255,255,255), 4, font18)
-        s_text("их уважаемым владельцам", True, (0,250), (255,255,255), 4, font18)
-        s_text("Спасибо всем, кто помог в создании этой игры!", True, (0,270), (255,255,255), 4, font18)
+        s_text("РСЃС…РѕРґРЅС‹Р№ РєРѕРґ РёРіСЂС‹ РїРёС€РµС‚ РњР°СЂС‚РёРЅ Р’РµСЂРЅРµСЂ СЃ 9.12.2020.", True, (0,170), (255,255,255), 4, font18)
+        s_text("Р”РІРёР¶РѕРє РёРіСЂС‹ \"pygame\" (https://www.pygame.org/)", True, (0,190), (255,255,255), 4, font18)
+        s_text("Р—РІСѓРІРё РІРµР¶Р»РёРІРѕ РїРѕР·Р°РёРјСЃС‚РІРѕРІР°РЅС‹ РёР· Tetris 2011 РѕС‚ EA", True, (0,210), (255,255,255), 4, font18)
+        s_text("Р’СЃРµ С‚РѕСЂРіРѕРІС‹Рµ РјР°СЂРєРё РїСЂРёРЅР°РґР»РµР¶Р°С‚", True, (0,230), (255,255,255), 4, font18)
+        s_text("РёС… СѓРІР°Р¶Р°РµРјС‹Рј РІР»Р°РґРµР»СЊС†Р°Рј", True, (0,250), (255,255,255), 4, font18)
+        s_text("РЎРїР°СЃРёР±Рѕ РІСЃРµРј, РєС‚Рѕ РїРѕРјРѕРі РІ СЃРѕР·РґР°РЅРёРё СЌС‚РѕР№ РёРіСЂС‹!", True, (0,270), (255,255,255), 4, font18)
         #s_text("", True, (0,290), (255,255,255), 4, font18)
         #s_text("", True, (0,310), (255,255,255), 4, font)
-        draw_button(tetriscom, bred, "Посетить Tetris.com")
+        draw_button(tetriscom, bred, "РџРѕСЃРµС‚РёС‚СЊ Tetris.com")
         for event in pygame.event.get():
             if (event.type==pygame.QUIT):
                 exit(in_game_call)
@@ -3148,11 +3148,11 @@ def info(in_game_call=False):
             if (press_check(back_button, mouse_pos)):
                 screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
             elif (press_check(tetriscom, mouse_pos)):
-                draw_button(tetriscom, bpred, "Посетить Tetris.com")
+                draw_button(tetriscom, bpred, "РџРѕСЃРµС‚РёС‚СЊ Tetris.com")
                 
         pygame.display.flip()
         fps.tick(60)
-#главное меню
+#РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 def info_screen(title, subtitle, bcolor, bpcolor, btext):
     mouse_button_pressed=(False,False,False)
     mbd=False
@@ -3289,43 +3289,43 @@ def settings_menu(in_game_call=False):
         mouse_pos=pygame.mouse.get_pos()
         #print("settings_menu")
         screen.blit(cbg,(0,0))
-        s_text("Настройки", True, (0,20), (255,255,255), 4, bigfont)
-        s_text("Проекция", True, (0,60), (255,255,255), 3, font22)
-        s_text("Анимация замирания фигуры", True, (0,100), (255,255,255), 3, font22)
-        s_text("Анимация очищения линий", True, (0,140), (255,255,255), 3, font22)
-        s_text("Анимация падения", True, (0,180), (255,255,255), 3, font22)
+        s_text("РќР°СЃС‚СЂРѕР№РєРё", True, (0,20), (255,255,255), 4, bigfont)
+        s_text("РџСЂРѕРµРєС†РёСЏ", True, (0,60), (255,255,255), 3, font22)
+        s_text("РђРЅРёРјР°С†РёСЏ Р·Р°РјРёСЂР°РЅРёСЏ С„РёРіСѓСЂС‹", True, (0,100), (255,255,255), 3, font22)
+        s_text("РђРЅРёРјР°С†РёСЏ РѕС‡РёС‰РµРЅРёСЏ Р»РёРЅРёР№", True, (0,140), (255,255,255), 3, font22)
+        s_text("РђРЅРёРјР°С†РёСЏ РїР°РґРµРЅРёСЏ", True, (0,180), (255,255,255), 3, font22)
         if (settings["toggleproection"]):
-            draw_button(proekcon, bdgreen, "вкл.")
-            draw_button(proekcoff, bred, "выкл.")
+            draw_button(proekcon, bdgreen, "РІРєР».")
+            draw_button(proekcoff, bred, "РІС‹РєР».")
         else:
-            draw_button(proekcon, bgreen, "вкл.")
-            draw_button(proekcoff, bdred, "выкл.")
+            draw_button(proekcon, bgreen, "РІРєР».")
+            draw_button(proekcoff, bdred, "РІС‹РєР».")
         if (settings["toggleaf"]):
-            draw_button(azfon, bdgreen, "вкл.")
-            draw_button(azfoff, bred, "выкл.")
+            draw_button(azfon, bdgreen, "РІРєР».")
+            draw_button(azfoff, bred, "РІС‹РєР».")
         else:
-            draw_button(azfon, bgreen, "вкл.")
-            draw_button(azfoff, bdred, "выкл.")
+            draw_button(azfon, bgreen, "РІРєР».")
+            draw_button(azfoff, bdred, "РІС‹РєР».")
         if (settings["togglecleara"]):
-            draw_button(aolon, bdgreen, "вкл.")
-            draw_button(aoloff, bred, "выкл.")
+            draw_button(aolon, bdgreen, "РІРєР».")
+            draw_button(aoloff, bred, "РІС‹РєР».")
         else:
-            draw_button(aolon, bgreen, "вкл.")
-            draw_button(aoloff, bdred, "выкл.")
+            draw_button(aolon, bgreen, "РІРєР».")
+            draw_button(aoloff, bdred, "РІС‹РєР».")
         if (settings["togglefall"]):
-            draw_button(apon, bdgreen, "вкл.")
-            draw_button(apoff, bred, "выкл.")
+            draw_button(apon, bdgreen, "РІРєР».")
+            draw_button(apoff, bred, "РІС‹РєР».")
         else:
-            draw_button(apon, bgreen, "вкл.")
-            draw_button(apoff, bdred, "выкл.")
+            draw_button(apon, bgreen, "РІРєР».")
+            draw_button(apoff, bdred, "РІС‹РєР».")
         #345
         draw_button(button_resize_plus, bgreen, "+")
         draw_button(button_resize_minus, bred, "-")
         draw_button(button_pcdmt_plus, bgreen, "+")
         draw_button(button_pcdmt_minus, bred, "-")
 
-        s_text("Масштаб (необходим перезапуск)", True, (0,240), (255,255,255), 3, font18)
-        s_text("Скорость передвижения фигуры", True, (0,280), (255,255,255), 3, font18)
+        s_text("РњР°СЃС€С‚Р°Р± (РЅРµРѕР±С…РѕРґРёРј РїРµСЂРµР·Р°РїСѓСЃРє)", True, (0,240), (255,255,255), 3, font18)
+        s_text("РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ С„РёРіСѓСЂС‹", True, (0,280), (255,255,255), 3, font18)
 
         s_text(str(settings["resize"]), True, (140,240), (255,255,255), 4, font)
         s_text(str(piece_cd_move_time), True, (140,280), (255,255,255), 4, font)
@@ -3412,24 +3412,24 @@ def settings_menu(in_game_call=False):
                 screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
                 
             elif (press_check(proekcon, mouse_pos)):
-                draw_button(proekcon, bpgreen, "вкл.")
+                draw_button(proekcon, bpgreen, "РІРєР».")
             elif (press_check(proekcoff, mouse_pos)):
-                draw_button(proekcoff, bpred, "выкл.")
+                draw_button(proekcoff, bpred, "РІС‹РєР».")
                 
             elif (press_check(azfon, mouse_pos)):
-                draw_button(azfon, bpgreen, "вкл.")
+                draw_button(azfon, bpgreen, "РІРєР».")
             elif (press_check(azfoff, mouse_pos)):
-                draw_button(azfoff, bpred, "выкл.")
+                draw_button(azfoff, bpred, "РІС‹РєР».")
                 
             elif (press_check(aolon, mouse_pos)):
-                draw_button(aolon, bpgreen, "вкл.")
+                draw_button(aolon, bpgreen, "РІРєР».")
             elif (press_check(aoloff, mouse_pos)):
-                draw_button(aoloff, bpred, "выкл.")
+                draw_button(aoloff, bpred, "РІС‹РєР».")
                 
             elif (press_check(apon, mouse_pos)):
-                draw_button(apon, bpgreen, "вкл.")
+                draw_button(apon, bpgreen, "РІРєР».")
             elif (press_check(apoff, mouse_pos)):
-                draw_button(apoff, bpred, "выкл.")
+                draw_button(apoff, bpred, "РІС‹РєР».")
 
             elif (press_check(button_resize_plus, mouse_pos)):
                 draw_button(button_resize_plus, bpgreen, "+")
@@ -3446,8 +3446,8 @@ def settings_menu(in_game_call=False):
         pygame.display.flip()
         fps.tick(60)
 def get_catalog(page):
-    #слыш ты олух, не забудь, что сейчас каталог грузится не с сайта. не забудь это изменить *изменил*
-    #0 - ид, 1 - название, автор, версия, 2 - ссылка на превью, 3 - скриншот 1, 4 - скриншот 2, 5 - скриншот 3, 6 - скриншот 4, 7 - скриншот 5, 8 - описание, 9 - ссылка на скачку
+    #СЃР»С‹С€ С‚С‹ РѕР»СѓС…, РЅРµ Р·Р°Р±СѓРґСЊ, С‡С‚Рѕ СЃРµР№С‡Р°СЃ РєР°С‚Р°Р»РѕРі РіСЂСѓР·РёС‚СЃСЏ РЅРµ СЃ СЃР°Р№С‚Р°. РЅРµ Р·Р°Р±СѓРґСЊ СЌС‚Рѕ РёР·РјРµРЅРёС‚СЊ *РёР·РјРµРЅРёР»*
+    #0 - РёРґ, 1 - РЅР°Р·РІР°РЅРёРµ, Р°РІС‚РѕСЂ, РІРµСЂСЃРёСЏ, 2 - СЃСЃС‹Р»РєР° РЅР° РїСЂРµРІСЊСЋ, 3 - СЃРєСЂРёРЅС€РѕС‚ 1, 4 - СЃРєСЂРёРЅС€РѕС‚ 2, 5 - СЃРєСЂРёРЅС€РѕС‚ 3, 6 - СЃРєСЂРёРЅС€РѕС‚ 4, 7 - СЃРєСЂРёРЅС€РѕС‚ 5, 8 - РѕРїРёСЃР°РЅРёРµ, 9 - СЃСЃС‹Р»РєР° РЅР° СЃРєР°С‡РєСѓ
     #catalog2=urlopen("http://"+site+"/TETRIS/catalog.txt").read()
     #print(catalog2)
     sock = socket.socket()
@@ -3460,18 +3460,18 @@ def get_catalog(page):
 
     catalog = pickle.loads(data)
     
-    #catalog=[[1,["test0","TESTI",1],"resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png",["тест каталога",],"none"],
-    #         [2,["test1","BISELISS",1],"resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png",["тест каталога","тест каталога"],"none"],
-    #         [3,["test2","MARTIN",1],"resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png",["тест каталога","тест каталога","тест каталога"],"none"],
-    #         [4,["test3","ROMA",1],"resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png",["тест каталога","тест каталога","тест каталога","тест каталога"],"none"],
-    #         [5,["test4","LAURIS",1],"resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png",["тест каталога","тест каталога","тест каталога","тест каталога","тест каталога"],"none"],
-    #         [6,["test5","ARSENIJ",1],"resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png",["ТЕСТ КАТАЛОГА","тест каталога","тест каталога","тест каталога","тест каталога"],"none"]]
+    #catalog=[[1,["test0","TESTI",1],"resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png",["С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°",],"none"],
+    #         [2,["test1","BISELISS",1],"resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png",["С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°"],"none"],
+    #         [3,["test2","MARTIN",1],"resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png",["С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°"],"none"],
+    #         [4,["test3","ROMA",1],"resources/catalog/4.png","resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png",["С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°"],"none"],
+    #         [5,["test4","LAURIS",1],"resources/catalog/5.png","resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png",["С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°"],"none"],
+    #         [6,["test5","ARSENIJ",1],"resources/catalog/6.png","resources/catalog/1.png","resources/catalog/2.png","resources/catalog/3.png","resources/catalog/4.png","resources/catalog/5.png",["РўР•РЎРў РљРђРўРђР›РћР“Рђ","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°","С‚РµСЃС‚ РєР°С‚Р°Р»РѕРіР°"],"none"]]
     return catalog
 
 def load_catalog(catalog):
-    #0 - ид, 1 - название, автор, версия, 2 - ссылка на превью, 3 - скриншот 1, 4 - скриншот 2, 5 - скриншот 3, 6 - скриншот 4, 7 - скриншот 5, 8 - описание, 9 - ссылка на скачку
-    #10 - картинка превью, 11 - скриншот 1, 12 - скриншот 1 mini, 13 - скриншот 2, 14 - скриншот 2 mini, 15 - скриншот 3, 16 - скриншот 3 mini, 17 - скриншот 4, 18 - скриншот 4 mini, 19 - скриншот 5, 20 - скриншот 5 mini
-    #21 - скриншот 1 полный размер, 22 - скриншот 2 полный размер, 23 - скриншот 3 полный размер, 24 - скриншот 4 полный размер, 25 - скриншот 5 полный размер
+    #0 - РёРґ, 1 - РЅР°Р·РІР°РЅРёРµ, Р°РІС‚РѕСЂ, РІРµСЂСЃРёСЏ, 2 - СЃСЃС‹Р»РєР° РЅР° РїСЂРµРІСЊСЋ, 3 - СЃРєСЂРёРЅС€РѕС‚ 1, 4 - СЃРєСЂРёРЅС€РѕС‚ 2, 5 - СЃРєСЂРёРЅС€РѕС‚ 3, 6 - СЃРєСЂРёРЅС€РѕС‚ 4, 7 - СЃРєСЂРёРЅС€РѕС‚ 5, 8 - РѕРїРёСЃР°РЅРёРµ, 9 - СЃСЃС‹Р»РєР° РЅР° СЃРєР°С‡РєСѓ
+    #10 - РєР°СЂС‚РёРЅРєР° РїСЂРµРІСЊСЋ, 11 - СЃРєСЂРёРЅС€РѕС‚ 1, 12 - СЃРєСЂРёРЅС€РѕС‚ 1 mini, 13 - СЃРєСЂРёРЅС€РѕС‚ 2, 14 - СЃРєСЂРёРЅС€РѕС‚ 2 mini, 15 - СЃРєСЂРёРЅС€РѕС‚ 3, 16 - СЃРєСЂРёРЅС€РѕС‚ 3 mini, 17 - СЃРєСЂРёРЅС€РѕС‚ 4, 18 - СЃРєСЂРёРЅС€РѕС‚ 4 mini, 19 - СЃРєСЂРёРЅС€РѕС‚ 5, 20 - СЃРєСЂРёРЅС€РѕС‚ 5 mini
+    #21 - СЃРєСЂРёРЅС€РѕС‚ 1 РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ, 22 - СЃРєСЂРёРЅС€РѕС‚ 2 РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ, 23 - СЃРєСЂРёРЅС€РѕС‚ 3 РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ, 24 - СЃРєСЂРёРЅС€РѕС‚ 4 РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ, 25 - СЃРєСЂРёРЅС€РѕС‚ 5 РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ
     for i in range(len(catalog)):
         logo=pygame.image.load(io.BytesIO(urlopen(catalog[i][2]).read()))
         catalog[i].append(logo)
@@ -3537,12 +3537,12 @@ def download_theme(id, theme_data):
         return False
     starting=True
     Thread(target=loading_screen).start()
-    loading_screen_to_show="Скачка темы..."
+    loading_screen_to_show="РЎРєР°С‡РєР° С‚РµРјС‹..."
     data=requests.get(theme_data[9],allow_redirects=True)
     try:os.mkdir("tmp")
     except:pass
     open("tmp/"+str(theme_data[0])+".zip","wb").write(data.content)
-    loading_screen_to_show="Распаковка темы..."
+    loading_screen_to_show="Р Р°СЃРїР°РєРѕРІРєР° С‚РµРјС‹..."
     with zipfile.ZipFile("tmp/"+str(id)+".zip", 'r') as zip_ref:
         zip_ref.extractall("resources/Themes/"+str(id))
     with open("resources/Themes/themes.ttl", encoding="utf-8") as downloaded_themes:
@@ -3569,7 +3569,7 @@ def remove_theme(id, theme_data):
         change_volume()
         settings["theme"]="Default"
         save_settings()
-    loading_screen_to_show="Удаление темы..."
+    loading_screen_to_show="РЈРґР°Р»РµРЅРёРµ С‚РµРјС‹..."
     try:
         shutil.rmtree("resources/Themes/"+str(id))
     except:
@@ -3597,7 +3597,7 @@ def remove_theme2(id, theme_data):
         change_volume()
         settings["theme"]="Default"
         save_settings()
-    loading_screen_to_show="Подготовка к удалению темы..."
+    loading_screen_to_show="РџРѕРґРіРѕС‚РѕРІРєР° Рє СѓРґР°Р»РµРЅРёСЋ С‚РµРјС‹..."
     loading_screen_to_show=""
     with open("resources/Themes/themes.ttl", encoding="utf-8") as downloaded_themes:
         downloaded_themes=json.load(downloaded_themes)
@@ -3624,10 +3624,10 @@ def update_theme(id, theme_data):
     starting=True
     Thread(target=loading_screen).start()
     if (settings["theme"]==str(id)):
-        loading_screen_to_show="Смена темы перед обновлением..."
+        loading_screen_to_show="РЎРјРµРЅР° С‚РµРјС‹ РїРµСЂРµРґ РѕР±РЅРѕРІР»РµРЅРёРµРј..."
         change_theme=True
         reload_resources("Default")
-    loading_screen_to_show="Обновление темы..."
+    loading_screen_to_show="РћР±РЅРѕРІР»РµРЅРёРµ С‚РµРјС‹..."
     try:
         shutil.rmtree("resources/Themes/"+str(id))
     except:
@@ -3656,7 +3656,7 @@ def update_theme2(id, theme_data):
         return False
     starting=True
     Thread(target=loading_screen).start()
-    loading_screen_to_show="Подготовка к обновлению темы..."
+    loading_screen_to_show="РџРѕРґРіРѕС‚РѕРІРєР° Рє РѕР±РЅРѕРІР»РµРЅРёСЋ С‚РµРјС‹..."
     data=requests.get(theme_data[9],allow_redirects=True)
     try:os.mkdir("tuol")
     except:pass
@@ -3742,16 +3742,16 @@ def catalog_theme_info(full_theme_data):
         screen.blit(full_theme_data[9+selected_screenshot*2],(centre[1][0]*resize,centre[1][1]*resize))
         s_text(full_theme_data[1][0], True, (0,10), (255,255,255), 4, bigfont)
         if (not_downloaded):
-            draw_button(catalog_theme_download, bgreen, "Скачать")
+            draw_button(catalog_theme_download, bgreen, "РЎРєР°С‡Р°С‚СЊ")
         else:
             if (update_available):
-                draw_button(catalog_theme_update, baqua, "Обновить")
-                draw_button(catalog_theme_remove, bred, "Удалить")
+                draw_button(catalog_theme_update, baqua, "РћР±РЅРѕРІРёС‚СЊ")
+                draw_button(catalog_theme_remove, bred, "РЈРґР°Р»РёС‚СЊ")
             else:
-                draw_button(catalog_theme_download, bred, "Удалить")
+                draw_button(catalog_theme_download, bred, "РЈРґР°Р»РёС‚СЊ")
         for i in range(len(full_theme_data[8])):
             s_text(full_theme_data[8][i], True, (0,244+20*i), (255,255,255), 4, font18)
-        s_text("Автор: "+full_theme_data[1][1], True, (0,354), (255,255,255), 4, font22)
+        s_text("РђРІС‚РѕСЂ: "+full_theme_data[1][1], True, (0,354), (255,255,255), 4, font22)
         if (selected_screenshot>1):
             screen.blit(full_theme_data[8+selected_screenshot*2],(nalevo[1][0]*resize,nalevo[1][1]*resize))
         if (12+selected_screenshot*2<len(full_theme_data) and full_theme_data[12+selected_screenshot*2]!=""):
@@ -3864,20 +3864,20 @@ def catalog_theme_info(full_theme_data):
                 screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
             if (not_downloaded):
                 if (press_check(catalog_theme_download,mouse_pos)):
-                    draw_button(catalog_theme_download, bpgreen, "Скачать")
+                    draw_button(catalog_theme_download, bpgreen, "РЎРєР°С‡Р°С‚СЊ")
             else:
                 if (update_available):
                     if (press_check(catalog_theme_update,mouse_pos)):
-                        draw_button(catalog_theme_update, bpaqua, "Обновить")
+                        draw_button(catalog_theme_update, bpaqua, "РћР±РЅРѕРІРёС‚СЊ")
                     elif (press_check(catalog_theme_remove,mouse_pos)):
-                        draw_button(catalog_theme_remove, bpred, "Удалить")
+                        draw_button(catalog_theme_remove, bpred, "РЈРґР°Р»РёС‚СЊ")
                 else:
                     if (press_check(catalog_theme_download,mouse_pos)):
-                        draw_button(catalog_theme_download, bpred, "Удалить")
+                        draw_button(catalog_theme_download, bpred, "РЈРґР°Р»РёС‚СЊ")
 
         if (show_ib):
             screen.blit(ibtu, (ibtup[1][0]*resize, ibtup[1][1]*resize))
-            s_text("Тема будет обновлена после перезапуска", True, (220,320), (255,255,255), 5, font18)
+            s_text("РўРµРјР° Р±СѓРґРµС‚ РѕР±РЅРѕРІР»РµРЅР° РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР°", True, (220,320), (255,255,255), 5, font18)
         
         pygame.display.flip()
         fps.tick(60)
@@ -3888,15 +3888,15 @@ def themes_catalog():
     #return
     starting=True
     Thread(target=loading_screen).start()
-    #начало загрузки
-    loading_screen_to_show="Получение и загрузка каталога..."
+    #РЅР°С‡Р°Р»Рѕ Р·Р°РіСЂСѓР·РєРё
+    loading_screen_to_show="РџРѕР»СѓС‡РµРЅРёРµ Рё Р·Р°РіСЂСѓР·РєР° РєР°С‚Р°Р»РѕРіР°..."
     catalog=load_catalog(get_catalog(1))
     #test1=pygame.image.load(io.BytesIO(urlopen(file_r[0][1]).read()))
     #file=open("test1.png","wb")
     #file.write(requests.get(file_r[0][1]).content)
     #file.close()
     #test1=pygame.image.load("test1.png")
-    #loading_screen_to_show="Чтение themes.ttl"
+    #loading_screen_to_show="Р§С‚РµРЅРёРµ themes.ttl"
     #with open("resources/Themes/themes.ttl", encoding="utf-8") as file_read:
     #    file_read=json.load(file_read)
     #id: name, version
@@ -3905,12 +3905,12 @@ def themes_catalog():
     #file.close()
     #file_read=file_read.split(",")
     loading_screen_to_show=""
-    #конец загрузки
+    #РєРѕРЅРµС† Р·Р°РіСЂСѓР·РєРё
     starting=False
     mbd=False
     scroll=0
     p_scroll=0
-    #0 - размер; 1 - координаты
+    #0 - СЂР°Р·РјРµСЂ; 1 - РєРѕРѕСЂРґРёРЅР°С‚С‹
     catalog_button0=[[160,160],[40,-160]]
     catalog_button1=[[160,160],[240,-160]]
     catalog_button2=[[160,160],[40,40]]
@@ -3922,7 +3922,7 @@ def themes_catalog():
 
     ibtup=((360,40),(40,360))
     while True:
-        #0 - размер; 1 - координаты
+        #0 - СЂР°Р·РјРµСЂ; 1 - РєРѕРѕСЂРґРёРЅР°С‚С‹
         catalog_button0[1][1]=(-160-p_scroll)
         catalog_button1[1][1]=(-160-p_scroll)
         catalog_button2[1][1]=(40-p_scroll)
@@ -4046,7 +4046,7 @@ def themes_catalog():
         
         if (show_ib):
             screen.blit(ibtu, (ibtup[1][0]*resize, ibtup[1][1]*resize))
-            s_text("Тема будет обновлена после перезапуска", True, (220,380), (255,255,255), 5, font18)
+            s_text("РўРµРјР° Р±СѓРґРµС‚ РѕР±РЅРѕРІР»РµРЅР° РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР°", True, (220,380), (255,255,255), 5, font18)
             
         pygame.display.flip()
         fps.tick(60)
@@ -4107,7 +4107,7 @@ def themes_menu(in_game_call):
     scroll=0
     max_scroll=0
     p_scroll=0
-    #0 - размер; 1 - координаты
+    #0 - СЂР°Р·РјРµСЂ; 1 - РєРѕРѕСЂРґРёРЅР°С‚С‹
     themes_button0=[[360,100],[40,-80]]
     themes_button1=[[360,100],[40,40]]
     themes_button2=[[360,100],[40,160]]
@@ -4126,7 +4126,7 @@ def themes_menu(in_game_call):
     ibtup=((360,40),(40,360))
     
     while True:
-        #0 - размер; 1 - координаты
+        #0 - СЂР°Р·РјРµСЂ; 1 - РєРѕРѕСЂРґРёРЅР°С‚С‹
         themes_button0[1][1]=(-80-p_scroll)
         themes_button1[1][1]=(40-p_scroll)
         themes_button2[1][1]=(160-p_scroll)
@@ -4197,7 +4197,7 @@ def themes_menu(in_game_call):
         screen.blit(up_button10im, (catalog_up[1][0]*resize,catalog_up[1][1]*resize))
         screen.blit(down_button10im, (catalog_down[1][0]*resize,catalog_down[1][1]*resize))
         screen.blit(mat_button10im, (mat_button[1][0]*resize,mat_button[1][1]*resize))
-        draw_button(catalog_button, bred, "Посетить каталог тем")
+        draw_button(catalog_button, bred, "РџРѕСЃРµС‚РёС‚СЊ РєР°С‚Р°Р»РѕРі С‚РµРј")
         if (scroll-1>=0):
             #draw_button(themes_button0, (100,0,0), downloaded_themes_keys[scroll-1])
             screen.blit(tbg, (tbgp0[1][0]*resize,tbgp0[1][1]*resize))
@@ -4208,14 +4208,14 @@ def themes_menu(in_game_call):
                 screen.blit(noprev, (prevp0[1][0]*resize,prevp0[1][1]*resize))
             if (downloaded_themes_keys[scroll-1]!="Default"):
                 if (downloaded_themes[downloaded_themes_keys[scroll-1]][3]):
-                    draw_button(tlb0, bgreen, "Применить", font18)
-                    draw_button(tr2b0, bred, "Удалить", font18)
-                    draw_button(tub0, baqua, "Обновить", font18)
+                    draw_button(tlb0, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(tr2b0, bred, "РЈРґР°Р»РёС‚СЊ", font18)
+                    draw_button(tub0, baqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                 else:
-                    draw_button(tlb0, bgreen, "Применить", font18)
-                    draw_button(trb0, bred, "Удалить", font18)
+                    draw_button(tlb0, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(trb0, bred, "РЈРґР°Р»РёС‚СЊ", font18)
             else:
-                draw_button(tl2b0, bgreen, "Применить", font18)
+                draw_button(tl2b0, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
         if (scroll<len(downloaded_themes_keys)):
             #draw_button(themes_button1, (200,0,0), downloaded_themes_keys[scroll])
             screen.blit(tbg, (tbgp1[1][0]*resize,tbgp1[1][1]*resize))
@@ -4226,14 +4226,14 @@ def themes_menu(in_game_call):
                 screen.blit(noprev, (prevp1[1][0]*resize,prevp1[1][1]*resize))
             if (downloaded_themes_keys[scroll]!="Default"):
                 if (downloaded_themes[downloaded_themes_keys[scroll]][3]):
-                    draw_button(tlb1, bgreen, "Применить", font18)
-                    draw_button(tr2b1, bred, "Удалить", font18)
-                    draw_button(tub1, baqua, "Обновить", font18)
+                    draw_button(tlb1, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(tr2b1, bred, "РЈРґР°Р»РёС‚СЊ", font18)
+                    draw_button(tub1, baqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                 else:
-                    draw_button(tlb1, bgreen, "Применить", font18)
-                    draw_button(trb1, bred, "Удалить", font18)
+                    draw_button(tlb1, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(trb1, bred, "РЈРґР°Р»РёС‚СЊ", font18)
             else:
-                draw_button(tl2b1, bgreen, "Применить", font18)
+                draw_button(tl2b1, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
         if (scroll+1<len(downloaded_themes_keys)):
             #draw_button(themes_button2, (0,100,0), downloaded_themes_keys[scroll+1])
             screen.blit(tbg, (tbgp2[1][0]*resize,tbgp2[1][1]*resize))
@@ -4244,14 +4244,14 @@ def themes_menu(in_game_call):
                 screen.blit(noprev, (prevp2[1][0]*resize,prevp2[1][1]*resize))
             if (downloaded_themes_keys[scroll+1]!="Default"):
                 if (downloaded_themes[downloaded_themes_keys[scroll+1]][3]):
-                    draw_button(tlb2, bgreen, "Применить", font18)
-                    draw_button(tr2b2, bred, "Удалить", font18)
-                    draw_button(tub2, baqua, "Обновить", font18)
+                    draw_button(tlb2, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(tr2b2, bred, "РЈРґР°Р»РёС‚СЊ", font18)
+                    draw_button(tub2, baqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                 else:
-                    draw_button(tlb2, bgreen, "Применить", font18)
-                    draw_button(trb2, bred, "Удалить", font18)
+                    draw_button(tlb2, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(trb2, bred, "РЈРґР°Р»РёС‚СЊ", font18)
             else:
-                draw_button(tl2b2, bgreen, "Применить", font18)
+                draw_button(tl2b2, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
         if (scroll+2<len(downloaded_themes_keys)):
             #draw_button(themes_button3, (0,200,0), downloaded_themes_keys[scroll+2])
             screen.blit(tbg, (tbgp3[1][0]*resize,tbgp3[1][1]*resize))
@@ -4262,14 +4262,14 @@ def themes_menu(in_game_call):
                 screen.blit(noprev, (prevp3[1][0]*resize,prevp3[1][1]*resize))
             if (downloaded_themes_keys[scroll+2]!="Default"):
                 if (downloaded_themes[downloaded_themes_keys[scroll+2]][3]):
-                    draw_button(tlb3, bgreen, "Применить", font18)
-                    draw_button(tr2b3, bred, "Удалить", font18)
-                    draw_button(tub3, baqua, "Обновить", font18)
+                    draw_button(tlb3, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(tr2b3, bred, "РЈРґР°Р»РёС‚СЊ", font18)
+                    draw_button(tub3, baqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                 else:
-                    draw_button(tlb3, bgreen, "Применить", font18)
-                    draw_button(trb3, bred, "Удалить", font18)
+                    draw_button(tlb3, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(trb3, bred, "РЈРґР°Р»РёС‚СЊ", font18)
             else:
-                draw_button(tl2b3, bgreen, "Применить", font18)
+                draw_button(tl2b3, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
         if (scroll+3<len(downloaded_themes_keys)):
             #draw_button(themes_button4, (0,0,100), downloaded_themes_keys[scroll+3])
             screen.blit(tbg, (tbgp4[1][0]*resize,tbgp4[1][1]*resize))
@@ -4280,14 +4280,14 @@ def themes_menu(in_game_call):
                 screen.blit(noprev, (prevp4[1][0]*resize,prevp4[1][1]*resize))
             if (downloaded_themes_keys[scroll+3]!="Default"):
                 if (downloaded_themes[downloaded_themes_keys[scroll+3]][3]):
-                    draw_button(tlb4, bgreen, "Применить", font18)
-                    draw_button(tr2b4, bred, "Удалить", font18)
-                    draw_button(tub4, baqua, "Обновить", font18)
+                    draw_button(tlb4, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(tr2b4, bred, "РЈРґР°Р»РёС‚СЊ", font18)
+                    draw_button(tub4, baqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                 else:
-                    draw_button(tlb4, bgreen, "Применить", font18)
-                    draw_button(trb4, bred, "Удалить", font18)
+                    draw_button(tlb4, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(trb4, bred, "РЈРґР°Р»РёС‚СЊ", font18)
             else:
-                draw_button(tl2b4, bgreen, "Применить", font18)
+                draw_button(tl2b4, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
         if (scroll+4<len(downloaded_themes_keys)):
             #draw_button(themes_button5, (0,0,200), downloaded_themes_keys[scroll+4])
             screen.blit(tbg, (tbgp5[1][0]*resize,tbgp5[1][1]*resize))
@@ -4298,14 +4298,14 @@ def themes_menu(in_game_call):
                 screen.blit(noprev, (prevp5[1][0]*resize,prevp5[1][1]*resize))
             if (downloaded_themes_keys[scroll+4]!="Default"):
                 if (downloaded_themes[downloaded_themes_keys[scroll+4]][3]):
-                    draw_button(tlb5, bgreen, "Применить", font18)
-                    draw_button(tr2b5, bred, "Удалить", font18)
-                    draw_button(tub5, baqua, "Обновить", font18)
+                    draw_button(tlb5, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(tr2b5, bred, "РЈРґР°Р»РёС‚СЊ", font18)
+                    draw_button(tub5, baqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                 else:
-                    draw_button(tlb5, bgreen, "Применить", font18)
-                    draw_button(trb5, bred, "Удалить", font18)
+                    draw_button(tlb5, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
+                    draw_button(trb5, bred, "РЈРґР°Р»РёС‚СЊ", font18)
             else:
-                draw_button(tl2b5, bgreen, "Применить", font18)
+                draw_button(tl2b5, bgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
         """
         draw_button(themes_button0, (100,0,0), "-2")
         draw_button(themes_button1, (200,0,0), "-1")
@@ -4532,7 +4532,7 @@ def themes_menu(in_game_call):
             elif (press_check(catalog_down,mouse_pos)):
                 screen.blit(down_button11im, (catalog_down[1][0]*resize,catalog_down[1][1]*resize))
             elif (press_check(catalog_button,mouse_pos)):
-                draw_button(catalog_button, bpred, "Посетить каталог тем")
+                draw_button(catalog_button, bpred, "РџРѕСЃРµС‚РёС‚СЊ РєР°С‚Р°Р»РѕРі С‚РµРј")
             elif (press_check(mat_button, mouse_pos)):
                 screen.blit(mat_button11im, (mat_button[1][0]*resize,mat_button[1][1]*resize))
 
@@ -4540,109 +4540,109 @@ def themes_menu(in_game_call):
                 if (scroll-1<len(downloaded_themes_keys)):
                     if (downloaded_themes[downloaded_themes_keys[scroll-1]][3]):
                         if (press_check(tlb0,mouse_pos)):
-                            draw_button(tlb0, bpgreen, "Применить", font18)
+                            draw_button(tlb0, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(tr2b0,mouse_pos)):
-                            draw_button(tr2b0, bpred, "Удалить", font18)
+                            draw_button(tr2b0, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         elif (press_check(tub0,mouse_pos)):
-                            draw_button(tub0, bpaqua, "Обновить", font18)
+                            draw_button(tub0, bpaqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                     elif (downloaded_themes_keys[scroll-1]=="Default"):
                         if (press_check(tl2b0,mouse_pos)):
-                            draw_button(tl2b0, bpgreen, "Применить", font18)
+                            draw_button(tl2b0, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                     else:
                         if (press_check(tlb0,mouse_pos)):
-                            draw_button(tlb0, bpgreen, "Применить", font18)
+                            draw_button(tlb0, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(trb0,mouse_pos)):
-                            draw_button(trb0, bpred, "Удалить", font18)
+                            draw_button(trb0, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         
             elif (press_check(themes_button1,mouse_pos)):
                 if (scroll<len(downloaded_themes_keys)):
                     if (downloaded_themes[downloaded_themes_keys[scroll]][3]):
                         if (press_check(tlb1,mouse_pos)):
-                            draw_button(tlb1, bpgreen, "Применить", font18)
+                            draw_button(tlb1, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(tr2b1,mouse_pos)):
-                            draw_button(tr2b1, bpred, "Удалить", font18)
+                            draw_button(tr2b1, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         elif (press_check(tub1,mouse_pos)):
-                            draw_button(tub1, bpaqua, "Обновить", font18)
+                            draw_button(tub1, bpaqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                     elif (downloaded_themes_keys[scroll]=="Default"):
                         if (press_check(tl2b1,mouse_pos)):
-                            draw_button(tl2b1, bpgreen, "Применить", font18)
+                            draw_button(tl2b1, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                     else:
                         if (press_check(tlb1,mouse_pos)):
-                            draw_button(tlb1, bpgreen, "Применить", font18)
+                            draw_button(tlb1, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(trb1,mouse_pos)):
-                            draw_button(trb1, bpred, "Удалить", font18)
+                            draw_button(trb1, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         
             elif (press_check(themes_button2,mouse_pos)):
                 if (scroll+1<len(downloaded_themes_keys)):
                     if (downloaded_themes[downloaded_themes_keys[scroll+1]][3]):
                         if (press_check(tlb2,mouse_pos)):
-                            draw_button(tlb2, bpgreen, "Применить", font18)
+                            draw_button(tlb2, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(tr2b2,mouse_pos)):
-                            draw_button(tr2b2, bpred, "Удалить", font18)
+                            draw_button(tr2b2, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         elif (press_check(tub2,mouse_pos)):
-                            draw_button(tub2, bpaqua, "Обновить", font18)
+                            draw_button(tub2, bpaqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                     elif (downloaded_themes_keys[scroll+1]=="Default"):
                         if (press_check(tl2b2,mouse_pos)):
-                            draw_button(tl2b2, bpgreen, "Применить", font18)
+                            draw_button(tl2b2, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                     else:
                         if (press_check(tlb2,mouse_pos)):
-                            draw_button(tlb2, bpgreen, "Применить", font18)
+                            draw_button(tlb2, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(trb2,mouse_pos)):
-                            draw_button(trb2, bpred, "Удалить", font18)
+                            draw_button(trb2, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         
             elif (press_check(themes_button3,mouse_pos)):
                 if (scroll+2<len(downloaded_themes_keys)):
                     if (downloaded_themes[downloaded_themes_keys[scroll+2]][3]):
                         if (press_check(tlb3,mouse_pos)):
-                            draw_button(tlb3, bpgreen, "Применить", font18)
+                            draw_button(tlb3, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(tr2b3,mouse_pos)):
-                            draw_button(tr2b3, bpred, "Удалить", font18)
+                            draw_button(tr2b3, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         elif (press_check(tub3,mouse_pos)):
-                            draw_button(tub3, bpaqua, "Обновить", font18)
+                            draw_button(tub3, bpaqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                     elif (downloaded_themes_keys[scroll+2]=="Default"):
                         if (press_check(tl2b3,mouse_pos)):
-                            draw_button(tl2b3, bpgreen, "Применить", font18)
+                            draw_button(tl2b3, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                     else:
                         if (press_check(tlb3,mouse_pos)):
-                            draw_button(tlb3, bpgreen, "Применить", font18)
+                            draw_button(tlb3, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(trb3,mouse_pos)):
-                            draw_button(trb3, bpred, "Удалить", font18)
+                            draw_button(trb3, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         
             elif (press_check(themes_button4,mouse_pos)):
                 if (scroll+3<len(downloaded_themes_keys)):
                     if (downloaded_themes[downloaded_themes_keys[scroll+3]][3]):
                         if (press_check(tlb4,mouse_pos)):
-                            draw_button(tlb4, bpgreen, "Применить", font18)
+                            draw_button(tlb4, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(tr2b4,mouse_pos)):
-                            draw_button(tr2b4, bpred, "Удалить", font18)
+                            draw_button(tr2b4, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         elif (press_check(tub4,mouse_pos)):
-                            draw_button(tub4, bpaqua, "Обновить", font18)
+                            draw_button(tub4, bpaqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                     elif (downloaded_themes_keys[scroll+3]=="Default"):
                         if (press_check(tl2b4,mouse_pos)):
-                            draw_button(tl2b4, bpgreen, "Применить", font18)
+                            draw_button(tl2b4, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                     else:
                         if (press_check(tlb4,mouse_pos)):
-                            draw_button(tlb4, bpgreen, "Применить", font18)
+                            draw_button(tlb4, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(trb4,mouse_pos)):
-                            draw_button(trb4, bpred, "Удалить", font18)
+                            draw_button(trb4, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         
             elif (press_check(themes_button5,mouse_pos)):
                 if (scroll+4<len(downloaded_themes_keys)):
                     if (downloaded_themes[downloaded_themes_keys[scroll+4]][3]):
                         if (press_check(tlb5,mouse_pos)):
-                            draw_button(tlb5, bpgreen, "Применить", font18)
+                            draw_button(tlb5, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(tr2b5,mouse_pos)):
-                            draw_button(tr2b5, bpred, "Удалить", font18)
+                            draw_button(tr2b5, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
                         elif (press_check(tub5,mouse_pos)):
-                            draw_button(tub5, bpaqua, "Обновить", font18)
+                            draw_button(tub5, bpaqua, "РћР±РЅРѕРІРёС‚СЊ", font18)
                     elif (downloaded_themes_keys[scroll+4]=="Default"):
                         if (press_check(tl2b5,mouse_pos)):
-                            draw_button(tl2b5, bpgreen, "Применить", font18)
+                            draw_button(tl2b5, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                     else:
                         if (press_check(tlb5,mouse_pos)):
-                            draw_button(tlb5, bpgreen, "Применить", font18)
+                            draw_button(tlb5, bpgreen, "РџСЂРёРјРµРЅРёС‚СЊ", font18)
                         elif (press_check(trb5,mouse_pos)):
-                            draw_button(trb5, bpred, "Удалить", font18)
+                            draw_button(trb5, bpred, "РЈРґР°Р»РёС‚СЊ", font18)
         
         if (max_scroll<scroll):
             max_scroll=scroll
@@ -4661,11 +4661,11 @@ def themes_menu(in_game_call):
                 scroll-=1
         if (show_ib and ib_mode==1):
             screen.blit(ibtu, (ibtup[1][0]*resize, ibtup[1][1]*resize))
-            s_text("Тема будет обновлена после перезапуска", True, (220,380), (255,255,255), 5, font18)
+            s_text("РўРµРјР° Р±СѓРґРµС‚ РѕР±РЅРѕРІР»РµРЅР° РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР°", True, (220,380), (255,255,255), 5, font18)
         if (show_ib and ib_mode==2):
             screen.blit(ibtu, (ibtup[1][0]*resize, ibtup[1][1]*resize))
-            s_text("Не удалось установить соединение", True, (220,380), (255,255,255), 5, font18)
-        #draw_button(((360,40),(40,360)),bblack,"Тема будет обновлена после перезапуска",font18)
+            s_text("РќРµ СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕРµРґРёРЅРµРЅРёРµ", True, (220,380), (255,255,255), 5, font18)
+        #draw_button(((360,40),(40,360)),bblack,"РўРµРјР° Р±СѓРґРµС‚ РѕР±РЅРѕРІР»РµРЅР° РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР°",font18)
         pygame.display.flip()
         fps.tick(60)
 def ib():
@@ -4799,7 +4799,7 @@ class music_disc:
         self.pos=pos
         self.ppos=0
         #self.color=(randint(0,255),randint(0,255),randint(0,255))
-        #сделать, чтобы были не картинки, а цветные круги
+        #СЃРґРµР»Р°С‚СЊ, С‡С‚РѕР±С‹ Р±С‹Р»Рё РЅРµ РєР°СЂС‚РёРЅРєРё, Р° С†РІРµС‚РЅС‹Рµ РєСЂСѓРіРё
         self.image=get_disc().copy()#disc.copy()
         #self.image=colorize(disc,self.color)
         self.music_name=music_name
@@ -4868,9 +4868,9 @@ def music_menu(in_game_call):
         if (proc<1):
             proc=procras(stime, stime+0.25)
         screen.blit(cbg, (0,0))
-        s_text("Музыка", True, (0, 20), (255,255,255), 4, font)
-        s_text("Громкость музыки:", True, (0, 300), (255,255,255), 3, font)
-        s_text("Громкость звуков:", True, (0, 330), (255,255,255), 3, font)
+        s_text("РњСѓР·С‹РєР°", True, (0, 20), (255,255,255), 4, font)
+        s_text("Р“СЂРѕРјРєРѕСЃС‚СЊ РјСѓР·С‹РєРё:", True, (0, 300), (255,255,255), 3, font)
+        s_text("Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєРѕРІ:", True, (0, 330), (255,255,255), 3, font)
         if (selected_music-2>=0): music_discs[selected_music-2].blit(selected_music, proc)
         if (selected_music+2<len(music_discs)): music_discs[selected_music+2].blit(selected_music, proc)
         if (selected_music-1>=0): music_discs[selected_music-1].blit(selected_music, proc)
@@ -4878,7 +4878,7 @@ def music_menu(in_game_call):
         music_discs[selected_music].blit(selected_music, proc)
         s_text(music_discs[selected_music].music_name, True, (0, 255), (255,255,255), 4, font)
         screen.blit(back_button10im, (back_button[1][0]*resize,back_button[1][1]*resize))
-        draw_button(explorer_music_button, bred, "Открыть папку с музыкой", font)
+        draw_button(explorer_music_button, bred, "РћС‚РєСЂС‹С‚СЊ РїР°РїРєСѓ СЃ РјСѓР·С‹РєРѕР№", font)
         for event in pygame.event.get():
             if (event.type==pygame.QUIT):
                 exit()
@@ -4986,7 +4986,7 @@ def music_menu(in_game_call):
             if (press_check(back_button,mouse_pos)):
                 screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
             elif (press_check(explorer_music_button, mouse_pos)):
-                draw_button(explorer_music_button, bpred, "Открыть папку с музыкой", font)
+                draw_button(explorer_music_button, bpred, "РћС‚РєСЂС‹С‚СЊ РїР°РїРєСѓ СЃ РјСѓР·С‹РєРѕР№", font)
             polzunok_music_volume[1]=polzunok(polzunok_music_volume, polzunok_start_pos)
             polzunok_sound_volume[1]=polzunok(polzunok_sound_volume, polzunok_start_pos)
             settings["music_volume"]=polzunok_music_volume[1]/100
@@ -5059,7 +5059,7 @@ def menu():
                             menu_type=2
             elif (event.type==pygame.KEYDOWN):
                 if (event.key==pygame.K_SPACE):
-                    #info_screen("Внимание", "Тема будет обновлена после перезапуска", bgreen, bpgreen, "Ок")
+                    #info_screen("Р’РЅРёРјР°РЅРёРµ", "РўРµРјР° Р±СѓРґРµС‚ РѕР±РЅРѕРІР»РµРЅР° РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР°", bgreen, bpgreen, "РћРє")
                     #themes_menu(True)
                     #pass
                     #try:
@@ -5067,8 +5067,8 @@ def menu():
                     #except Exception as error:
                     #    print(error)
                     #if (event.key==pygame.K_SPACE):
-                    #    if (tf_dialog("Ты лix?", "кто прочитал тот здохнет", bgreen, bpgreen, "Да.", bred, bpred, "Нет!")):
-                    #        print("реал лох")
+                    #    if (tf_dialog("РўС‹ Р»ix?", "РєС‚Рѕ РїСЂРѕС‡РёС‚Р°Р» С‚РѕС‚ Р·РґРѕС…РЅРµС‚", bgreen, bpgreen, "Р”Р°.", bred, bpred, "РќРµС‚!")):
+                    #        print("СЂРµР°Р» Р»РѕС…")
                 #elif (event.key==pygame.K_v):
                 #    themes_menu(False)
                 #elif (event.key==pygame.K_b):
@@ -5093,7 +5093,7 @@ def menu():
                 if (press_check(back_button, mouse_pos)):
                     screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
                 elif (press_check(select_mat_button, mouse_pos)):
-                    draw_button(select_mat_button, bpgreen, "Выбор темы")
+                    draw_button(select_mat_button, bpgreen, "Р’С‹Р±РѕСЂ С‚РµРјС‹")
             elif (menu_type==3):
                 if (press_check(back_button, mouse_pos)):
                     screen.blit(back_button11im, (back_button[1][0]*resize,back_button[1][1]*resize))
